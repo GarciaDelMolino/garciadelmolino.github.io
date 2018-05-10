@@ -100,8 +100,7 @@ h1 {
 }
 
 .paperImg img {
-    width: 150px;
-    /* height: 125px;*/
+    width: 125px;
 }
 
 .paperInfo {
