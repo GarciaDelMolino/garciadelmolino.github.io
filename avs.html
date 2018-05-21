@@ -18,10 +18,11 @@
                     </div>
 
     <nav class="top-bar">
-            <div class='nav-text'>
-                    <h1>Active Video Summarization: Customized Summaries via On-line Interaction with the User.</h1>
+            <!--            <div class='nav-text'>
+                    <h1>Active Video Summarization: </h1>
+<h1>Customized Summaries via On-line Interaction with the User.</h1>
                     <hr>
-	</div>
+	</div>-->
         <div class='nav-div'>
             <!--
             <div class='nav-header'>
@@ -30,10 +31,10 @@
             </div>
             -->
             <div class='nav-text'>
-                    <!--<h1>Active Video Summarization: Customized Summaries via On-line Interaction with the User.</h1>
+                    <h1>Active Video Summarization: </h1>
+<h1>Customized Summaries via On-line Interaction with the User.</h1>
                     <hr>
                     
-                    -->
                     <p> To facilitate the browsing of long videos, automatic video
 summarization provides an excerpt that represents its content.
 In the case of egocentric and consumer videos, due
@@ -67,12 +68,91 @@ user. </p>
                             - <a href="https://github.com/GarciaDelMolino/AVS">Code</a></p>
                     </div> 
             </div>
-	<div class='nav-img'>
+	<div class='nav-div-img'>
                 <p text-align='right'>
-                    <img src="files/AVS.png" height="400">
+                    <img src="files/AVS.png" width="500">
                 </p>
         </div>
         </div>
+<div class='nav-text-small'>
+<hr>
+<h2 text-align='left'>Overview of Active Video Summarization </h2>
+</div>
+	<div class='nav-div'>
+		<div class='nav-img'>
+                <p text-align='left'>
+                    <img src="files/AVSalgo.png" width="450">
+                </p>
+        	</div>
+		<div class='nav-text-small'>
+	<p> The aim of AVS is to provide a customized summary with as
+	little effort as possible from the user side. The system first
+	asks for the user’s initial preferences, selected from a set
+	of items, i.e. the most frequent items in the original video.
+	Then, the user’s preferences are further refined through a
+	question-asking inference.</p> 
+
+	<p>
+	AVS asks the user specific questions about segments of
+	the video. It shows one selected segment, and asks the following
+	two binary questions: 
+	<ol>
+	  <li>Would you want this segment
+	to be in the final summary?</li>
+	  <li>Would you want to
+	include similar segments?</li>
+	</ol>
+	</p> 
+
+	<p>
+	Note that the original video is not shown to the user, as the
+	segments shown during the interaction, and the subsequently generated summaries, provide an accurate
+	idea of the video content in much less time.</p> 
+
+	<p>
+	Thus, AVS can be divided into two inference problems:
+	<ol type="i">
+	  <li>infer the customized summary, and</li>
+	  <li>infer the next
+	segment to show.</li>
+	</ol>
+	We use a probabilistic approach
+	based on active inference in Conditional Random Fields
+	(CRFs) (Roig et al. 2013). to infer the most likely summary,
+	and to estimate the next question to ask.</p> 
+        	</div>
+        </div>
+
+<div class='nav-text-small'>
+<hr>
+<h2 text-align='left'>Experimental Results </h2>
+
+                <p>We analyze two scenarios in which AVS can be used in practice.
+In the first scenario, the user has to summarize a video
+never seen before. The user has no knowledge of the video
+essence, and thus does not know yet what are the relevant
+parts. AVS allows the user to discover his or her own preferences
+while exploring the video content. Generating summaries in this scenario with AVS results
+4 times faster than doing it manually.
+	</p> 
+
+	<p> In the second scenario, the user already knows the content
+of the video (e.g. the user was the camera wearer), and
+already knows his or her preferences. However, due to the
+length of the original video, looking for such preferences in
+the video is very time consuming. AVS allows for the user
+to browse the video and find such events easier and faster. 
+To test AVS in this scenario, we gave the users a set of element to be found in the video.
+We score the summaries according to how many events appear on it.
+The results using the different baselines are the following:
+                </p>
+
+                <p text-align='center'>
+                    <img src="files/AVSresults.png" width="100%">
+                </p>
+
+</div>
+
     </nav>
        </main>
 </body>
