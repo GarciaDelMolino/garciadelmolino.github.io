@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset='UTF-8'>
+<html>
+
+<head>
+    <title>Ana Garcia del Molino</title>
+    <link href="css/styles.css" rel="stylesheet">
+	<!-- Grid -->	
+	<style>
+	.site {
+		display: grid;
+		grid-template-columns: 7fr 8fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"fig about";
+		align-items: center;
+		padding: 0 1em 0 1em;
+	}
+
+	@media screen and (max-width: 800px){
+	  .site {
+		  display: grid;
+		  grid-template-columns: 1fr 6fr 1fr;
+		  grid-template-rows: auto;
+		  grid-template-areas:
+			". fig ."
+			". about .";
+		align-items: center;
+	  }
+	}
+	@media screen and (min-width: 1200px){
+	  .site {
+		  display: grid;
+		  grid-template-columns: 1fr 3fr 8fr 1fr;
+		  grid-template-rows: auto;
+		  grid-template-areas:
+			"fig fig about .";
+		  padding: 0 1em 0 1em;
+	  }
+	}
+
+	.pic {
+		grid-area: fig;
+		padding: 0 1em 0 1em;
+		text-align: center;		
+	}
+
+	.aboutMe {
+		grid-area: about;
+		padding: 0 1em 0 1em;
+		text-align: justify;		
+	}
+
+	</style>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <section class="site">
+        <div class='pic'>
+            <img src="files/ana.jpg" width="100%">
+        </div>
+
+
+        <div class='aboutMe'>
+            <h1>me, Me, ME!</h1>
+            <hr>
+            
+            <p>I am a PhD candidate at the School of Computer Engineering, Nanyang Technological University, Singapore, and the Institute for Infocomm Research (A*STAR), under the <a href="https://www.a-star.edu.sg/singa-award/">Singapore International Graduate Award (SINGA)</a> program. My supervisors are Lim Joo-Hwee and Tan Ah-Hwee.
+My research interests are in the areas of computer vision, pattern recognition and cognitive vision. In particular, my PhD topic is the summarization of egocentric and consumer videos.
+
+            <p>I obtained my BSc and MSc in Telecommunications Engineering from <a href="http://www.upc.edu/?set_language=en">UPC BarcelonaTech</a>, where I collaborated with the <a href="https://imatge.upc.edu/web/">Image Processing Group</a>. My MSc thesis was co-supervised by <a href="http://futur.upc.edu/XavierGiroNieto"> Xavier Giró-i-Nieto</a>, and <a href="http://research.nii.ac.jp/~satoh/">Shin'ichi Satoh</a> at the NII of Japan.</p>
+            
+	    <p>If I'm not reading, coding, writing papers or creating silly webpages, you will most likely find me taking pictures of random stuff with my phone, at the cinema or, let's be honest, on my couch reading a book or watching the last Netflix release. I also try to travel as much as the deadlines allow, and enjoy making earings out of whatever trinket I find.			
+</p>
+	    <div class='nav-links'>
+	                <a href='mailto:stugdma@i2r.a-star.edu.sg'>Email</a>
+	                - <a href="http://github.com/garciadelmolino">Github</a> 
+	                - <a href="https://scholar.google.com/citations?user=MtVjIIAAAAAJ&hl=en">Scholar</a>
+	                - <a href="https://www.linkedin.com/in/anagarciadelmolino/">LinkedIn</a>
+	                - <a href="/files/cv.pdf">my CV</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@article{del2018phd,
+  title={PHD-GIFs: Personalized Highlight Detection for Automatic GIF Creation},
+  author={del Molino, Ana Garc{\'\i}a and Gygli, Michael},
+  journal={arXiv preprint arXiv:1804.06604},
+  year={2018}
+}

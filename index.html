@@ -1,8 +1,87 @@
 <!DOCTYPE html>
 <meta charset='UTF-8'>
 <html>
-
 <head>
+	<!-- Grid -->	
+	<style>
+	.site {
+		display: grid;
+		grid-template-columns: 3fr 3fr 3fr;
+		grid-template-rows: auto 3fr auto 2fr 2fr;
+		grid-template-areas:
+			"header header header"
+			"about gallery twitter"
+		    	"news news news"
+		    	"PHD AVS THMS"
+			"CLEF NTCIR .";
+		align-items: center;
+		padding: 0 1em 0 1em;
+	}
+
+	@media screen and (max-width: 800px){
+	  .site {
+		  display: grid;
+		  grid-template-columns: 1fr 6fr 1fr;
+		  grid-template-rows: auto 2fr 2fr 3fr auto 2fr 2fr 2fr 2fr 2fr;
+		  grid-template-areas:
+			"header header header"
+			". about ." 
+			". gallery ."
+			". twitter ." 
+		    	"news news news"
+		    	". PHD ." 
+			". AVS ." 
+			". THMS ." 
+			". CLEF ." 
+			". NTCIR .";
+		align-items: center;
+	  }
+	}
+	@media screen and (min-width: 1500px){
+	  .site {
+		  display: grid;
+		  grid-template-columns: .5fr 3fr 3fr 3fr .5fr;
+		  grid-template-rows: auto 3fr auto 2fr 2fr;
+		  grid-template-areas:
+			". header header header ."
+			". about gallery twitter ."
+		    	". news news news ."
+		    	". PHD AVS THMS ."
+			". CLEF NTCIR . .";
+		  padding: 0 1em 0 1em;
+	  }
+	}
+
+	.top-head {
+		grid-area: header;
+		text-align: center;		
+	}
+
+	.aboutMe {
+		grid-area: about;
+		padding: 0 1em 0 1em;		
+	}
+
+	.gallery {
+		grid-area: gallery;
+		padding: 0 1em 0 1em;
+	}
+
+	.twit {
+		grid-area: twitter;	
+	}
+
+	.content {
+		grid-area: news;	
+	}
+	txt{
+		padding: 0 1em 0 1em;
+		font-size: 2em;
+		font-weight: bold;
+		color: #E4F9DA;
+	}
+
+	</style>
     <title>Ana Garcia del Molino</title>
     <link href="css/styles.css" rel="stylesheet">
 
@@ -10,44 +89,38 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 </head>
 
-
-
 <body>
-    <nav class="top-bar">
-        <div class='nav-div'>
-            <div class='nav-img'>
-                <div class='vert-aligner'>
-                    <img src="files/ana.jpg" height="250">
-                </div>
-            </div>
+  <section class="site">
+	<div class="top-head">
+		<h1>Ana Garcia del Molino</h1>
+		<hr>
+		<p color="#28660B">PhD candidate, based in Singapore.</p> <!--581825 455818-->
+		<p>I record lots of visual content with my phone, so I could only venture into a PhD to solve the mess it generates!</p>
+		            <div class='nav-links'>
+		                <a href='mailto:stugdma@i2r.a-star.edu.sg'>Email</a>
+		                - <a href="http://github.com/garciadelmolino">Github</a> 
+		                - <a href="https://scholar.google.com/citations?user=MtVjIIAAAAAJ&hl=en">Scholar</a>
+		                - <a href="https://www.linkedin.com/in/anagarciadelmolino/">LinkedIn</a>
+		                - <a href="/files/cv.pdf">my CV</a></p>
+		            </div>
+	</div>
+	<div class="aboutMe">
+		<a href='https://garciadelmolino.github.io/about.html'><img src="files/ana.jpg" width="100%"></a>
+	</div>
+	<div class="aboutMe">
+		<txt align="left"> About Me </txt>
+	</div>
+	<div class="gallery">
+		<a href='https://www.instagram.com/ping_delmo/'><img src="files/gallery.jpg" width="100%"></a>
+	</div>
+	<div class="gallery">
+		<txt style="text_align:right;"> Gallery </txt>
+	</div>
+	<div class="twit">
+		<a class="twitter-timeline" data-width="100%" data-height="100%" data-theme="dark" href="https://twitter.com/ping_delmo?ref_src=twsrc%5Etfw">Tweets by ping_delmo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</div>
 
-
-            <!--
-            <div class='nav-header'>
-                <h1>Ana Garcia del Molino</h1>
-                <br>
-            </div>
-            -->
-            <div class='nav-text'>
-                    <h1>Ana Garcia del Molino</h1>
-                    <hr>
-                    <!--
-                    -->
-                    <p>I am a PhD candidate at the School of Computer Engineering, Nanyang Technological University, Singapore, and the Institute for Infocomm Research (A*STAR), under the <a href="https://www.a-star.edu.sg/singa-award/">Singapore International Graduate Award (SINGA)</a> program. My supervisors are Lim Joo-Hwee and Tan Ah-Hwee.
-My research interests are in the areas of computer vision, pattern recognition and cognitive vision. In particular, my PhD topic is the summarization of egocentric and consumer videos.
-
-                    <p>I obtained my BSc and MSc in Telecommunications Engineering from <a href="http://www.upc.edu/?set_language=en">UPC BarcelonaTech</a>, where I collaborated with <a href="https://imatge.upc.edu/web/">GPI</a>. My MSc thesis was co-supervised by <a href="http://research.nii.ac.jp/~satoh/">Shin'ichi Satoh</a> at the NII of Japan.</p>
-                    <div class='nav-links'>
-                        <a href='mailto:stugdma@i2r.a-star.edu.sg'>Email</a>
-                        - <a href="http://github.com/garciadelmolino">Github</a> 
-                        - <a href="https://scholar.google.com/citations?user=MtVjIIAAAAAJ&hl=en">Scholar</a>
-                        - <a href="https://www.linkedin.com/in/anagarciadelmolino/">LinkedIn</a></p>
-                    </div>
-            </div>
-        </div>
-    </nav>
-
-        <div class='single-column'>
+      <div class='content'>
             <h1 id="papers">Selected Publications</h1>
             <hr>
             <br>
@@ -68,6 +141,7 @@ My research interests are in the areas of computer vision, pattern recognition a
                         <p>
                             <a href="http://arxiv.org/abs/1804.06604">[Paper]</a>
                             <a href="https://github.com/gyglim/personalized-highlights-dataset">[Dataset]</a>
+			    <a href="files/PHD-GIFs.txt">[BibTeX]</a>
                         </p>
                     </div>
                 </div>
@@ -91,6 +165,7 @@ My research interests are in the areas of computer vision, pattern recognition a
                             <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">[Paper]</a>
                             <a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">[Demo]</a>
                             <a href="https://github.com/GarciaDelMolino/AVS">[Code]</a>
+			    <a href="files/AVS.txt">[BibTeX]</a>
                         </p>
                     </div>
                 </div>
@@ -112,6 +187,7 @@ My research interests are in the areas of computer vision, pattern recognition a
                     <div class="infoBottom">
                         <p>
                             <a href="files/IEEE-THMS-Garcia-del-Molino.pdf">[Paper]</a> 
+			    <a href="files/THMS.txt">[BibTeX]</a>
                         </p>
                     </div>
                 </div>
@@ -133,11 +209,13 @@ My research interests are in the areas of computer vision, pattern recognition a
                     <div class="infoBottom">
                         <p>
                             <a href="http://oar.a-star.edu.sg/jspui/handle/123456789/2158">[Paper]</a>
+			    <a href="files/CLEF.txt">[BibTeX]</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+
+  </section>
 </body>
 </html>
