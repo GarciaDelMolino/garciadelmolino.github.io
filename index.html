@@ -7,21 +7,22 @@
 	.site {
 		display: grid;
 		grid-template-columns: 3fr 3fr 3fr;
-		grid-template-rows: auto 3fr auto 2fr 2fr;
+		grid-template-rows: auto 2fr auto 2fr 2fr;
 		grid-template-areas:
 			"header header header"
-			"about gallery twitter"
+			"about twitter gallery"
 		    	"news news news"
 		    	"PHD AVS THMS"
 			"CLEF NTCIR .";
+		grid-row-gap: 1em;
 		align-items: center;
 		padding: 0 1em 0 1em;
 	}
 
-	@media screen and (max-width: 800px){
+	@media (max-width: 800px){
 	  .site {
 		  display: grid;
-		  grid-template-columns: 1fr 6fr 1fr;
+		  grid-template-columns: 1fr 7fr 1fr;
 		  grid-template-rows: auto 2fr 2fr 3fr auto 2fr 2fr 2fr 2fr 2fr;
 		  grid-template-areas:
 			"header header header"
@@ -34,6 +35,7 @@
 			". THMS ." 
 			". CLEF ." 
 			". NTCIR .";
+		grid-row-gap: .5em;
 		align-items: center;
 	  }
 	}
@@ -41,13 +43,14 @@
 	  .site {
 		  display: grid;
 		  grid-template-columns: .5fr 3fr 3fr 3fr .5fr;
-		  grid-template-rows: auto 3fr auto 2fr 2fr;
+		  grid-template-rows: auto 2fr auto 2fr 2fr;
 		  grid-template-areas:
 			". header header header ."
-			". about gallery twitter ."
+			". about twitter gallery ."
 		    	". news news news ."
 		    	". PHD AVS THMS ."
 			". CLEF NTCIR . .";
+		  grid-row-gap: 1em;
 		  padding: 0 1em 0 1em;
 	  }
 	}
@@ -69,17 +72,42 @@
 
 	.twit {
 		grid-area: twitter;	
+		min-height: 0; 
+		overflow: hidden;
 	}
 
 	.content {
 		grid-area: news;	
 	}
 	txt{
-		padding: 0 1em 0 1em;
+		padding: 0 5% 0 5%;
 		font-size: 2em;
 		font-weight: bold;
 		color: #E4F9DA;
+		display:block;
 	}
+
+/*	.wb-twitter {
+	  .twitter-timeline {		
+		display: block;
+		text-indent: -9999px;
+		}
+	  iframe {
+		&[style] {
+		    height : 100% !important;
+		}
+	  }
+	.wb-enable {
+	.wb-twitter {
+		.twitter-timeline {
+			@extend %global-loading;
+			min-height: 100px;
+			min-width: 100px;
+			position: relative;
+  		}
+  	}
+  }
+	}*/
 
 	</style>
     <title>Ana Garcia del Molino</title>
@@ -92,7 +120,7 @@
 <body>
   <section class="site">
 	<div class="top-head">
-		<h1>Ana Garcia del Molino</h1>
+		<h1>Ana García del Molino</h1>
 		<hr>
 		<p color="#28660B">PhD candidate, based in Singapore.</p> <!--581825 455818-->
 		<p>I record lots of visual content with my phone, so I could only venture into a PhD to solve the mess it generates!</p>
@@ -105,19 +133,19 @@
 		            </div>
 	</div>
 	<div class="aboutMe">
-		<a href='https://garciadelmolino.github.io/about.html'><img src="files/ana.jpg" width="100%"></a>
+		<a href='https://garciadelmolino.github.io/about.html'><img src="files/gallery.jpg" width="100%" style="border-radius: 5%;"></a>
 	</div>
 	<div class="aboutMe">
 		<txt align="left"> About Me </txt>
 	</div>
 	<div class="gallery">
-		<a href='https://www.instagram.com/ping_delmo/'><img src="files/gallery.jpg" width="100%"></a>
+		<a href='https://www.instagram.com/ping_delmo/'><img src="files/kids.jpg" width="100%" style="border-radius: 5%;"></a>
 	</div>
 	<div class="gallery">
-		<txt style="text_align:right;"> Gallery </txt>
+		<txt style="text-align: right;"> Gallery </txt>
 	</div>
 	<div class="twit">
-		<a class="twitter-timeline" data-width="100%" data-height="100%" data-theme="dark" href="https://twitter.com/ping_delmo?ref_src=twsrc%5Etfw">Tweets by ping_delmo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<a class="twitter-timeline" data-width="100%" data-height="100%" data-theme="light" href="https://twitter.com/ping_delmo?ref_src=twsrc%5Etfw">Tweets by ping_delmo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div>
 
       <div class='content'>
