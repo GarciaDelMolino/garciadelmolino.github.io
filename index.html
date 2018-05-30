@@ -11,15 +11,15 @@
 		grid-template-areas:
 			"header header header"
 			"about twitter gallery"
-		    	"news news news"
-		    	"PHD AVS THMS"
+		    "news news news"
+		    "PHD AVS THMS"
 			"CLEF NTCIR .";
 		grid-row-gap: 1em;
 		grid-column-gap: 1em;
 		align-items: center;
 	}
 
-	@media (max-width: 800px){
+	@media (max-width: 900px){
 	  .site {
 		  display: grid;
 		  grid-template-columns: 0fr 3fr 0fr;
@@ -45,7 +45,7 @@
 		  grid-template-columns: .5fr 3fr 3fr 3fr .5fr;
 		  grid-template-rows: auto 2fr auto 2fr 2fr;
 		  grid-template-areas:
-			". header header header ."
+			"header header header header header"
 			". about twitter gallery ."
 		    	". news news news ."
 		    	". PHD AVS THMS ."
@@ -57,7 +57,11 @@
 
 	.top-head {
 		grid-area: header;
-		text-align: center;		
+		text-align: center;
+		background-image: url(files/origami_green.jpg);
+		background-size: cover;
+		padding: 3em 0 2em 0;
+		font-weight: 700;
 	}
 
 	.aboutMe {
@@ -130,12 +134,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #dfd6ac"> 
   <section class="site">
 	<div class="top-head">
-		<h1>Ana García del Molino</h1>
+		<h1 style="font-weight: 900;"> Ana García del Molino</h1>
 		<hr>
-		<p color="#28660B">PhD candidate, based in Singapore.</p> <!--581825 455818-->
+		<p style="color:#005751; font-weight: 900;">PhD candidate, based in Singapore.</p>
 		<p>I record lots of visual content with my phone, so I could only venture into a PhD to solve the mess it generates!</p>
 		            <div class='nav-links'>
 		                <a href='mailto:stugdma@i2r.a-star.edu.sg'>Email</a>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+    <link href="css/styles.css" rel="stylesheet">
+	<!-- Grid -->	
+	<style>
+	.site {
+		display: grid;
+		grid-template-columns: .5fr 3fr 2.5fr .5fr 3fr .5r;
+		grid-template-rows: repeat(8, auto);
+		grid-template-areas:
+			"abstract abstract abstract teaser teaser teaser"
+			"abstract2 abstract2 abstract2 abstract2 abstract2 . "
+			"sechead sechead sechead sechead sechead"
+		    "fig1 fig1 txt1 txt1 txt1"
+			". txt12 txt12 txt12 txt12"
+		    "txt2 txt2 txt2 txt2 txt2"
+		    "fig21 fig23 fig23 fig23 fig22";
+		    ". fig2leg fig2leg fig2leg .";
+		align-items: center;
+	}
+
+	@media (max-width: 900px){
+	  .site {
+		  display: grid;
+		  grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
+		  grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+		  grid-template-areas:
+		      "abstract abstract abstract abstract abstract"
+			  "abstract2 abstract2 abstract2 abstract2 abstract2"
+		      "teaser teaser teaser teaser teaser"
+			  "awehead awehead awehead awehead awehead"
+			  "sechead sechead sechead sechead sechead"
+		      "txt1 txt1 txt1 txt1 txt1"
+		      ". fig1 fig1 fig1 ." 
+		      "txt12 txt12 txt12 txt12 txt12"
+		      "txt2 txt2 txt2 txt2 txt2"
+		      ". fig21 fig21 fig21 ."
+		      ". fig22 fig22 fig22 ."
+		      ". fig23 fig23 fig23 ."
+		      ". . fig2leg . .";
+		align-items: center;
+		font-size: 10pt;
+	  }
+	  
+	  h1 {
+			margin: 0;
+			font-weight: 300;
+			font-size: 20pt;
+	  }
+	}
+	@media (min-width: 1500px){
+	  .site {
+		  display: grid;
+		  grid-template-columns: 1fr 4fr 2fr 0.5fr 4.5fr 1fr;
+		  grid-template-rows: auto auto auto auto auto auto auto auto;
+		  grid-template-areas:
+		      "abstract abstract abstract . teaser teaser"
+			  "abstract2 abstract2 abstract2 abstract2 abstract2 ."
+			  ". awehead awehead awehead awehead ."
+			  ". sechead sechead sechead sechead ."
+		      ". fig1 txt1 txt1 txt1 ."
+			  ". txt12 txt12 txt12 txt12 ."
+		      ". txt2 txt2 txt2 txt2 ."
+		      ". fig21 fig23 fig2leg fig22 .";
+	  }
+	}
+
+	.abs {
+		grid-area: abstract;
+		padding: 0 1em 0 1em;
+	}
+	.abs2 {
+		grid-area: abstract2;
+		padding: 0 1em 0 1em;
+	}
+	.teaserFig {
+		grid-area: teaser;
+		text-align: center;
+	}
+	.awesomeHeader {
+		grid-area: awehead;
+		padding: 0 1em 0 1em;
+	}
+	.sectionHeader {
+		grid-area: sechead;
+		padding: 0 1em 0 1em;
+	}
+	.section1-content {
+		grid-area: txt1;
+		padding: 0 1em 0 1em;
+	}
+	.section1-content2 {
+		grid-area: txt12;
+		padding: 0 1em 0 1em;
+	}
+	.section1-fig {
+		grid-area: fig1;
+		padding: 0 1em 0 1em;
+		text-align: center;		
+	}
+	.section2-content {
+		grid-area: txt2;
+		padding: 0 1em 0 1em;
+	}
+	.section2-fig1 {
+		grid-area: fig21;
+	}
+	.section2-fig2 {
+		grid-area: fig22;
+	}
+	.section2-fig3 {
+		grid-area: fig23;
+	}
+	.section2-figleg {
+		grid-area: fig2leg;
+		text-align: center;	
+	}
+	.site p {
+		text-align: justify;
+	}
+	</style>
+    <title>Personalized Highlight Detection</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+</head>
+
+
+<body>
+  <div text-align='left'>
+    <a href="https://garciadelmolino.github.io">Home</a>
+  </div>
+  <section class="site">
+      <div class="abs">
+		<h1>Personalized Highlight Detection for Automatic GIF Creation</h1>
+  	    <hr>
+        <div class='nav-links' text-align='center'>
+                <a href="http://arxiv.org/abs/1804.06604">Paper</a>
+                - <a href="https://github.com/gyglim/personalized-highlights-dataset">Dataset</a>
+				- <a href="files/PHD-GIFs.txt">BibTeX</a>
+        </div> 
+		
+		<p> Highlight detection models are typically trained to identify cues
+		that make visual content appealing or interesting for the general
+		public, with the objective of reducing a video to such moments.
+		However, this “interestingness” of a video segment or image is
+		subjective. Thus, such highlight models provide results of limited
+		relevance for the individual user. On the other hand, training one
+		model per user is inefficient and requires large amounts of personal
+		information which is typically not available. To overcome these
+		limitations, we present a global ranking model which can condition
+		on a particular user’s interests. Rather than training one model per
+		user, our model is personalized via its inputs, which allows it to
+		effectively adapt its predictions, given only a few of user-specific
+		examples. To train this model, we create a large-scale dataset of
+		users and the GIFs they created, giving us an accurate indication
+		of their interests.  
+	  </div>     
+
+      <div class="abs2">
+		<p> Our experiments show that using the user history
+		substantially improves the prediction accuracy. On our test set of
+		850 videos, our model improves the recall over 8% with respect to
+		generic highlight detectors. Our method proves more precise than the
+		user-agnostic baselines even with just one person-specific example.
+      </div>     
+      	<div class="teaserFig">
+      	<img src="files/PHD-GIFs.png" width="100%">
+      </div>
+
+	<div class='awesomeHeader'>
+		<hr>
+		<h2 text-align='left'>The awesomness of PHD-GIFs: </h2>
+	</div>	  
+	<div class='sectionHeader'>
+		<hr>
+		<h2 text-align='left'>Overview of PHD-GIFs </h2>
+	</div>
+	<div class='section1-fig'>
+		<img src="files/PHDarch.png" width="100%">
+	</div>	
+	<div class='section1-content'>
+		<p> We propose a model that predicts the score of a segment
+		as a function of both the segment itself and the user’s previously
+		selected highlights. As such, the model learns to take into account
+		the user history to make accurate personalized predictions.</p> 
+
+		<p>
+		While there are several ways to do personalization, making the
+		user history an input to the model has the advantage that a single
+		model is sufficient and that the model can use all annotations
+		from all users in training. A single model can predict personalized
+		highlights for all users and new user information can trivially be included.
+		</p> 
+	</div>	
+	<div class='section1-content2'>
+		<p>
+		We propose two models for for our ranking objective, which are combined with late
+		fusion. One takes the segment representation and aggregated history
+		as input (the FNN model), while the second directly uses the distances
+		between the segments and the history (the SVM model).</p> 
+	</div>
+
+	<div class='section2-content'>
+		<hr>
+		<h2 text-align='left'>Experimental Results </h2>
+
+            <p>When analyzing the results, we find that our
+				method outperforms the baselines by a significant
+				margin.
+				Models using only generic highlight information or only the similarity
+				to previous GIFs perform similar (15.86% for Video2GIF
+				(ours) vs. 15.64% mAP for SVM-D), despite the simplicity of the
+				distance model. Thus, we can conclude that these two kinds of information
+				are both important and that there is a lot of signal contained
+				in a user’s history about his future choice of highlights.
+                </p>
+			<!--
+            <p text-align='center'>
+                <img src="files/AVSresults.png" width="100%">
+            </p> -->	
+	</div>
+	<!--
+	<div class="section2-fig1">
+        <img src="files/PHDmap.png" width="100%">
+    </div>
+	<div class="section2-fig2">
+		<img src="files/PHDmse.png" width="100%">
+    </div>
+	<div class="section2-fig3">
+		<img src="files/PHDrec.png" width="100%">
+    </div>
+	<div class="section2-figleg">
+        <img src="files/PHDlegend.png" width="70%">
+    </div> -->	
+  </section>
+</body>
+</html>
+
