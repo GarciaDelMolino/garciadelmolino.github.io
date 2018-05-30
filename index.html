@@ -4,6 +4,10 @@
 <head>
 	<!-- Grid -->	
 	<style>
+	span.author { 
+		white-space: nowrap;
+		/* use: <span class="author">Author Name</span>*/
+	}
 	.mainHeader {
 		width=100%;
 		background-color: #fcfff7;
@@ -24,16 +28,15 @@
 
 	.site {
 		display: grid;
-		grid-template-columns: 3fr 3fr 3fr;
+		grid-template-columns: 3fr 1.5fr 1.5fr 3fr;
 		grid-template-rows: auto 2fr auto 2fr 2fr;
 		grid-template-areas:
-			"header header header"
-			"about gallery twitter"
-		    	"news news news"
-		    	"PHD AVS THMS"
-			"CLEF NTCIR .";
+			"header header header header"
+			"about gallery gallery twitter"
+		    	"news news news news"
+		    	"PHD PHD AVS AVS"
+			"THMS THMS CLEF CLEF";
 		grid-row-gap: 1em;
-		grid-column-gap: 1em;
 		align-items: center;
 		padding: 0 1em 0 1em;
 		border-radius: 5px 5px 0 0;
@@ -42,7 +45,7 @@
 	@media (max-width: 800px){
 	  .site {
 		  display: grid;
-		  grid-template-columns: 0fr 3fr 0fr;
+		  grid-template-columns: 0.5fr 3fr 0.5fr;
 		  grid-template-rows: auto 2fr 2fr 3fr auto 2fr 2fr 2fr 2fr 2fr;
 		  grid-template-areas:
 			"header header header"
@@ -55,23 +58,21 @@
 			". THMS ." 
 			". CLEF ." 
 			". NTCIR .";
-		grid-row-gap: .5em;
 		align-items: center;
 	  }
 	}
 	@media screen and (min-width: 1500px){
 	  .site {
 		  display: grid;
-		  grid-template-columns: .5fr 3fr 3fr 3fr .5fr;
+		  grid-template-columns: .5fr 3fr 1.5fr 1.5fr 3fr .5fr;
 		  grid-template-rows: auto 2fr auto 2fr 2fr;
 		  grid-template-areas:
-			". header header header ."
-			". about gallery twitter ."
-		    	". news news news ."
-		    	". PHD AVS THMS ."
-			". CLEF NTCIR . .";
+			". header header header header ."
+			". about gallery gallery twitter ."
+		    	". news news news news ."
+		    	". PHD PHD AVS AVS ."
+			". THMS THMS CLEF CLEF .";
 		  grid-row-gap: 1em;
-		  grid-column-gap: 1em;
 		  padding: 0 1em 0 1em;
 		border-radius: 5px 5px 0 0;
 	  }
@@ -87,6 +88,7 @@
 		grid-area: about;	
 		text-align: center;	
 		position: relative;
+		padding: 0 .5em 0 .5em;
 	}
 	
 	.aboutMe img {
@@ -123,6 +125,7 @@
 		grid-area: gallery;
 		text-align: center;		
 		position: relative;
+		padding: 0 .5em 0 .5em;
 	}
 	
 	.gallery img {
@@ -160,12 +163,76 @@
 		min-height: 0; 
 		height: 100%;
 		overflow: hidden;
+		padding: 0 .5em 0 .5em;
 	}
 
 	.content {
 		grid-area: news;	
 	}
 
+	.paper {
+		display: grid;
+		grid-template-columns: 5fr 3fr;
+		grid-template-rows: auto 2fr;
+		grid-template-areas:
+			"title title"
+			"teaser info";
+		grid-column-gap: 1em;
+		grid-row-gap: 1em;
+		padding: 1em;
+		margin: 0 1em 0 1em;
+		border: 5px solid #f7efd9;
+		height: 100%;
+   		box-sizing: border-box;
+	}
+	.paper li {
+	  list-style-type: none;
+	}
+	.paper .title {
+		grid-area: title;
+		text-align: left;
+		display: block;	
+		font-weight: 700;
+		color: #005751;
+	}
+	.title i {
+		font-weight: 500;
+		color: black;
+	}
+	.paper .teaser {
+		grid-area: teaser;
+		text-align: left;
+		display: block;	
+		font-weight: 700;
+	}
+	.paper .teaser img {
+   		box-sizing: border-box;
+		width: 100%;
+		position: relative;
+		display: inline-block;
+	}
+	.paper .teaser .tooltiptext {
+	    visibility: hidden;
+	    width: 120px;
+	    background-color: black;
+	    color: #fff;
+	    text-align: center;
+	    border-radius: 6px;
+	    padding: 5px 0;
+
+	    /* Position the tooltip */
+	    position: absolute;
+	    z-index: 1;
+	}
+	.paper .teaser:hover .tooltiptext {
+	    visibility: visible;
+	}
+	.paper .teaser:hover img {
+	    box-shadow: 0 0 2px 1px #b5cea9;
+	    opacity: 0.5;
+  	    transition: .3s ease;
+
+	}
 	</style>
     <title>Ana Garcia del Molino</title>
     <link href="css/styles.css" rel="stylesheet">
@@ -203,101 +270,74 @@
 		<a class="twitter-timeline" data-width="100%" data-height="100%" data-theme="light" href="https://twitter.com/ping_delmo?ref_src=twsrc%5Etfw">Tweets by ping_delmo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	</div>
 
+       <section class='paper' style="grid-area: PHD;">
+       		<div class="title"> PHD-GIFs: Personalized Highlight Detection for Automatic GIF Creation.<hr> </div>
+       		<div class="info"> 
+			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">M. Gygli </p></span> 
+                        <ul>
+                            <li><a href="http://arxiv.org/abs/1804.06604">[Paper]</a>
+                           <li> <a href="https://github.com/gyglim/personalized-highlights-dataset">[Dataset]</a>
+			    <li><a href="files/PHD-GIFs.txt">[BibTeX]</a>
+                        </ul>
+		</div>
+		<div class="teaser"> 
+			<img  src="files/PHD-GIFs.png">
+		        <span class="tooltiptext">Tell me more!</span>
+		</div>
+       </section>
+
+       <section class='paper' style="grid-area: AVS;">
+       		<div class="title"> <a href="https://garciadelmolino.github.io/avs.html">Active Video Summarization: Customized Summaries via On-line Interaction with the User.</a> <i>AAAI 2017</i> <hr> </div>
+       		<div class="info"> 
+			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">X. Boix</span>, <span class="author">J.H. Lim</span>, <span class="author">A.H. Tan</span> </p>
+                        <ul>
+                            <li><a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">[Paper]</a>
+                            <li><a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">[Demo]</a>
+                            <li><a href="https://github.com/GarciaDelMolino/AVS">[Code]</a>
+			    <li><a href="files/AVS.txt">[BibTeX]</a>
+                        </ul>
+		</div>
+		 <div class="teaser"> 
+			<a href="https://garciadelmolino.github.io/avs.html"><img  src="files/AVS.png"></a> 
+		        <span class="tooltiptext">Tell me more!</span>
+		</div>
+       </section>
+
+       <section class='paper' style="grid-area: THMS;">
+       		<div class="title"> Summarization of egocentric videos: A comprehensive survey. <i>IEEE T-HMS 2017</i><hr> </div>
+       		<div class="info"> 
+			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">C. Tan</span>, <span class="author">J.H. Lim</span>, <span class="author">A.H. Tan</span>  </p>
+                        <ul>
+                            <li><a href="files/IEEE-THMS-Garcia-del-Molino.pdf">[Paper]</a> 
+			    <li><a href="files/THMS.txt">[BibTeX]</a>
+                        </ul>
+		</div>
+		<div class="teaser"> 
+			<img  src="files/THMS.png">
+		        <span class="tooltiptext">Tell me more!</span>
+		</div>
+       </section>
+
+       <section class='paper' style="grid-area: CLEF;">
+       		<div class="title"> VC-I2R@ ImageCLEF2017: ensemble of deep learned features for lifelog video summarization. <i>CLEF 2017</i> <hr> </div>
+       		<div class="info"> 
+			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">B. Mandal</span>, <span class="author">J. Lin</span>, <span class="author">J.H. Lim</span>, <span class="author"><i>et. al.</i></span>  </p>
+                        <ul>
+                            <li><a href="http://oar.a-star.edu.sg/jspui/handle/123456789/2158">[Paper]</a>
+			    <li><a href="files/CLEF.txt">[BibTeX]</a>
+                        </ul>
+		</div>
+		<div class="teaser"> 
+			<img  src="files/CLEF.png">
+		        <span class="tooltiptext">Tell me more!</span>
+		</div>
+       </section>
+
+
       <div class='content'>
             <h1 id="papers">Selected Publications</h1>
             <hr>
-            <br>
-            <div class="paper">
-                <div class="paperImg">
-                  <div class='vert-aligner'>
-                    <img src="files/PHD-GIFs.png">
-                  </div>
-                </div>
-                <div class="paperInfo">
-                    <div class="'infoTop">
-                        <strong>PHD-GIFs: Personalized Highlight Detection for Automatic GIF Creation.</strong>
-                        <hr>
-                        <p><b>A. G. del Molino</b>, M. Gygli</p>
-                        <i>arXiv Apr 2018</i>
-                    </div>
-                    <div class="infoBottom">
-                        <p>
-                            <a href="http://arxiv.org/abs/1804.06604">[Paper]</a>
-                            <a href="https://github.com/gyglim/personalized-highlights-dataset">[Dataset]</a>
-			    <a href="files/PHD-GIFs.txt">[BibTeX]</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <br>
-                        <div class="paper">
-                <div class="paperImg">
-                  <div class='vert-aligner'>
-                    <img src="files/AVS.png">
-                  </div>
-                </div>
-                <div class="paperInfo">
-                    <div class="'infoTop">
-                        <a href="https://garciadelmolino.github.io/avs.html"><strong>Active Video Summarization: Customized Summaries via On-line Interaction with the User.</strong></a>
-                        <hr>
-                        <p><b>A. G. del Molino</b>, X. Boix, J.H. Lim, A.H. Tan</p>
-                        <i>AAAI 2017 </i>
-                    </div>
-                    <div class="infoBottom">
-                        <p>
-                            <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">[Paper]</a>
-                            <a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">[Demo]</a>
-                            <a href="https://github.com/GarciaDelMolino/AVS">[Code]</a>
-			    <a href="files/AVS.txt">[BibTeX]</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="paper">
-                <div class="paperImg">
-                  <div class='vert-aligner'>
-                    <img src="files/THMS.png">
-                  </div>
-                </div>
-                <div class="paperInfo">
-                    <div class="'infoTop">
-                        <strong>Summarization of egocentric videos: A comprehensive survey</strong>
-                        <hr>
-                        <p><b>A. G. del Molino</b>, C. Tan, J.H. Lim, A.H. Tan</p>
-                        <i>IEEE T-HMS 2017</i>
-                    </div>
-                    <div class="infoBottom">
-                        <p>
-                            <a href="files/IEEE-THMS-Garcia-del-Molino.pdf">[Paper]</a> 
-			    <a href="files/THMS.txt">[BibTeX]</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="paper">
-                <div class="paperImg">
-                  <div class='vert-aligner'>
-                    <img src="files/CLEF.png">
-                  </div>
-                </div>
-                <div class="paperInfo">
-                    <div class="'infoTop">
-                        <strong>VC-I2R@ ImageCLEF2017: ensemble of deep learned features for lifelog video summarization</strong>
-                        <hr>
-                        <p><b>A.G. del Molino</b>, B. Mandal, J. Lin, J.H. Lim, V. Subbaraju, V. Chandrasekhar</p>
-                        <i>CLEF 2017</i> - <b> Winners for the Lifelog Task</b> -
-                    </div>
-                    <div class="infoBottom">
-                        <p>
-                            <a href="http://oar.a-star.edu.sg/jspui/handle/123456789/2158">[Paper]</a>
-			    <a href="files/CLEF.txt">[BibTeX]</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
 
   </section>
 </body>
