@@ -3,8 +3,16 @@ html {
     text-rendering: optimizeLegibility;
 }
 
+/*color palete: 
+HEX: #e4d1d1
+HEX: #b9b0b0
+HEX: #d9ecd0
+HEX: #77a8a8
+HEX: #C3B262
+*/
+
 body {
-    padding: 1em;
+    /*padding: 1em;*/
     min-height: 80vh;
     width: 85vw;
     margin: auto;
