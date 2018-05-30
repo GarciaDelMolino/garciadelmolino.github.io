@@ -4,22 +4,42 @@
 <head>
 	<!-- Grid -->	
 	<style>
+	.mainHeader {
+		width=100%;
+		background-color: #fcfff7;
+		padding: 1em 0 .5em 0;
+		margin-top: 2em;
+		text-align: center;
+		/* RGBa with 0.7 opacity */
+		background-color: rgba(252, 255, 247, 0.7);
+		/* For IE 5.5 - 7*/
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99fbffef, endColorstr=#99fbffef);
+		/* For IE 8*/
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99fbffef, endColorstr=#99fbffef)";
+
+		border-radius: 5000px 5000px 0 0;
+		box-shadow: 10px 1.3em 20em 5em #fcfff7;
+	    	font-size: 1.2em;
+	}
+
 	.site {
 		display: grid;
 		grid-template-columns: 3fr 3fr 3fr;
 		grid-template-rows: auto 2fr auto 2fr 2fr;
 		grid-template-areas:
 			"header header header"
-			"about twitter gallery"
-		    "news news news"
-		    "PHD AVS THMS"
+			"about gallery twitter"
+		    	"news news news"
+		    	"PHD AVS THMS"
 			"CLEF NTCIR .";
 		grid-row-gap: 1em;
 		grid-column-gap: 1em;
 		align-items: center;
+		padding: 0 1em 0 1em;
+		border-radius: 5px 5px 0 0;
 	}
 
-	@media (max-width: 900px){
+	@media (max-width: 800px){
 	  .site {
 		  display: grid;
 		  grid-template-columns: 0fr 3fr 0fr;
@@ -45,86 +65,106 @@
 		  grid-template-columns: .5fr 3fr 3fr 3fr .5fr;
 		  grid-template-rows: auto 2fr auto 2fr 2fr;
 		  grid-template-areas:
-			"header header header header header"
-			". about twitter gallery ."
+			". header header header ."
+			". about gallery twitter ."
 		    	". news news news ."
 		    	". PHD AVS THMS ."
 			". CLEF NTCIR . .";
 		  grid-row-gap: 1em;
 		  grid-column-gap: 1em;
+		  padding: 0 1em 0 1em;
+		border-radius: 5px 5px 0 0;
 	  }
 	}
 
 	.top-head {
 		grid-area: header;
 		text-align: center;
-		background-image: url(files/origami_green.jpg);
-		background-size: cover;
-		padding: 3em 0 2em 0;
-		font-weight: 700;
+		display: block;	
 	}
 
 	.aboutMe {
-		grid-area: about;
-		padding: 0 1em 0 1em;
+		grid-area: about;	
+		text-align: center;	
+		position: relative;
 	}
 	
 	.aboutMe img {
-		border: 5px solid green;
+   		box-sizing: border-box;
+		background-color: #b5cea9;
+		border: 5px solid #b5cea9;
 		border-radius: 5%/7.5%;	
-		width: 100%		
+		max-width: 100%;
+	}
+
+	.aboutMe txt{
+	    font-weight: bold;
+	    color: #E4F9DA;
+	    position: absolute;
+	    top: 50%;
+	    left: 5%;
+	    transform: translate(0, -50%);
+	    font-size: 1.8em;
+
+	}
+
+	.aboutMe:hover img {
+	    box-shadow: 0 0 2px 1px #b5cea9;
+	    opacity: 0.5;
+  	    transition: .3s ease;
+	}
+
+	.aboutMe:hover txt {
+	    color: #005751;
+	    /*left: 50%;*/
 	}
 
 	.gallery {
 		grid-area: gallery;
-		padding: 0 1em 0 1em;
+		text-align: center;		
+		position: relative;
 	}
 	
 	.gallery img {
-		border: 5px solid green;
+   		box-sizing: border-box;
+		background-color: #b5cea9;
+		border: 5px solid #b5cea9;
 		border-radius: 5%/7.5%;	
 		width: 100%		
 	}
 
+	.gallery txt{
+	    font-weight: bold;
+	    color: #E4F9DA;
+	    position: absolute;
+	    top: 50%;
+	    right: 5%;
+	    transform: translate(0, -50%);
+	    font-size: 1.8em;
+	}
+
+	.gallery:hover img {
+	    box-shadow: 0 0 2px 1px #b5cea9;
+	    opacity: 0.5;
+  	    transition: .3s ease;
+	}
+
+	.gallery:hover txt {
+	    color: #005751;
+	    /*right: 50%;*/
+	}
+
 	.twit {
+   		box-sizing: border-box;
 		grid-area: twitter;	
 		min-height: 0; 
 		height: 100%;
-		overflow: hidden;	
+		overflow: hidden;
 	}
 
 	.content {
 		grid-area: news;	
 	}
-	txt{
-		padding: 0 5% 0 5%;
-		font-size: 1.8em;
-		font-weight: bold;
-		color: #E4F9DA;
-		display:block;
-	}
-
-/*	.wb-twitter {
-	  .twitter-timeline {		
-		display: block;
-		text-indent: -9999px;
-		}
-	  iframe {
-		&[style] {
-		    height : 100% !important;
-		}
-	  }
-	.wb-enable {
-	.wb-twitter {
-		.twitter-timeline {
-			@extend %global-loading;
-			min-height: 100px;
-			min-width: 100px;
-			position: relative;
-  		}
-  	}
-  }
-	}*/
 
 	</style>
     <title>Ana Garcia del Molino</title>
@@ -134,12 +174,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 </head>
 
-<body style="background-color: #dfd6ac"> 
-  <section class="site">
+<body style="background-image:url(files/origami_full.jpg);">
+     <div class="mainHeader">
+	<h1 style="font-weight: 900;">Ana García del Molino</h1>
+	<hr>
+	<p style="color:#005751; font-weight: 900;">PhD candidate, currently based in Singapore.</p> <!--581825 455818-->
+     </div>
+  <section class="site" style="background-color: #fcfff7;">
 	<div class="top-head">
-		<h1 style="font-weight: 900;"> Ana García del Molino</h1>
-		<hr>
-		<p style="color:#005751; font-weight: 900;">PhD candidate, based in Singapore.</p>
 		<p>I record lots of visual content with my phone, so I could only venture into a PhD to solve the mess it generates!</p>
 		            <div class='nav-links'>
 		                <a href='mailto:stugdma@i2r.a-star.edu.sg'>Email</a>
@@ -151,15 +193,11 @@
 	</div>
 	<div class="aboutMe">
 		<a href='https://garciadelmolino.github.io/about.html'><img src="files/gallery.jpg"></a>
-	</div>
-	<div class="aboutMe">
-		<txt align="left"> About Me </txt>
+		<txt> About Me </txt>
 	</div>
 	<div class="gallery">
 		<a href='https://www.instagram.com/ping_delmo/'><img src="files/kids.jpg"></a>
-	</div>
-	<div class="gallery">
-		<txt style="text-align: right;"> Gallery </txt>
+		<txt> Gallery </txt>
 	</div>
 	<div class="twit">
 		<a class="twitter-timeline" data-width="100%" data-height="100%" data-theme="light" href="https://twitter.com/ping_delmo?ref_src=twsrc%5Etfw">Tweets by ping_delmo</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
