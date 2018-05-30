@@ -15,6 +15,7 @@
 		    	"PHD AVS THMS"
 			"CLEF NTCIR .";
 		grid-row-gap: 1em;
+		grid-column-gap: 3em;
 		align-items: center;
 		padding: 0 1em 0 1em;
 	}
@@ -51,29 +52,43 @@
 		    	". PHD AVS THMS ."
 			". CLEF NTCIR . .";
 		  grid-row-gap: 1em;
+		  grid-column-gap: 3em;
 		  padding: 0 1em 0 1em;
 	  }
 	}
 
 	.top-head {
 		grid-area: header;
-		text-align: center;		
+		text-align: center;	
 	}
 
 	.aboutMe {
 		grid-area: about;
-		padding: 0 1em 0 1em;		
+		padding: 0 1em 0 1em;	
+	}
+	
+	.aboutMe img {
+		border: 5px solid #b5cea9;
+		border-radius: 5%/7.5%;	
+		width: 100%		
 	}
 
 	.gallery {
 		grid-area: gallery;
 		padding: 0 1em 0 1em;
 	}
+	
+	.gallery img {
+		border: 5px solid #b5cea9;
+		border-radius: 5%/7.5%;	
+		width: 100%		
+	}
 
 	.twit {
 		grid-area: twitter;	
 		min-height: 0; 
 		overflow: hidden;
+		height: 100%;
 	}
 
 	.content {
@@ -81,7 +96,7 @@
 	}
 	txt{
 		padding: 0 5% 0 5%;
-		font-size: 2em;
+		font-size: 1.8em;
 		font-weight: bold;
 		color: #E4F9DA;
 		display:block;
@@ -120,9 +135,9 @@
 <body>
   <section class="site">
 	<div class="top-head">
-		<h1>Ana García del Molino</h1>
+		<h1 style="font-weight: 900;">Ana García del Molino</h1>
 		<hr>
-		<p color="#28660B">PhD candidate, based in Singapore.</p> <!--581825 455818-->
+		<p style="color:#005751; font-weight: 900;">PhD candidate, based in Singapore.</p> <!--581825 455818-->
 		<p>I record lots of visual content with my phone, so I could only venture into a PhD to solve the mess it generates!</p>
 		            <div class='nav-links'>
 		                <a href='mailto:stugdma@i2r.a-star.edu.sg'>Email</a>
@@ -133,13 +148,13 @@
 		            </div>
 	</div>
 	<div class="aboutMe">
-		<a href='https://garciadelmolino.github.io/about.html'><img src="files/gallery.jpg" width="100%" style="border-radius: 5%;"></a>
+		<a href='https://garciadelmolino.github.io/about.html'><img src="files/gallery.jpg"></a>
 	</div>
 	<div class="aboutMe">
 		<txt align="left"> About Me </txt>
 	</div>
 	<div class="gallery">
-		<a href='https://www.instagram.com/ping_delmo/'><img src="files/kids.jpg" width="100%" style="border-radius: 5%;"></a>
+		<a href='https://www.instagram.com/ping_delmo/'><img src="files/kids.jpg""></a>
 	</div>
 	<div class="gallery">
 		<txt style="text-align: right;"> Gallery </txt>

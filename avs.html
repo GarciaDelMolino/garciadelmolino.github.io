@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<meta charset='UTF-8'>
+<meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
 <html>
 <head>
 	<!-- Grid -->	
 	<style>
 	.site {
-	  	flex: 1;
 		display: grid;
 		grid-template-columns: 4fr 1fr 1fr 1fr 4fr;
-		grid-template-rows: auto auto auto auto;
+		grid-template-rows: auto auto auto auto auto auto;
 		grid-template-areas:
 			"abstract abstract abstract teaser teaser"
+			"abstract2 abstract2 abstract2 abstract2 abstract2"
 			"sechead sechead sechead sechead sechead"
 		    "fig1 txt1 txt1 txt1 txt1"
 		    "txt2 txt2 txt2 txt2 txt2"
@@ -18,14 +18,14 @@
 		align-items: center;
 	}
 
-	@media screen and (max-width: 800px){
+	@media (max-width: 900px){
 	  .site {
-	  	  flex: 1;
 		  display: grid;
 		  grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
-		  grid-template-rows: auto auto auto auto auto auto auto auto;
+		  grid-template-rows: auto auto auto auto auto auto auto auto auto;
 		  grid-template-areas:
 		      "abstract abstract abstract abstract abstract"
+			  "abstract2 abstract2 abstract2 abstract2 abstract2"
 		      "teaser teaser teaser teaser teaser"
 			  "sechead sechead sechead sechead sechead"
 		      ". fig1 fig1 fig1 ." 
@@ -37,14 +37,14 @@
 		align-items: center;
 	  }
 	}
-	@media screen and (min-width: 1500px){
+	@media (min-width: 1500px){
 	  .site {
-	  	  flex: 1;
 		  display: grid;
 		  grid-template-columns: 1fr 4fr 2fr 0.5fr 4.5fr 1fr;
-		  grid-template-rows: auto auto auto auto;
+		  grid-template-rows: auto auto auto auto auto;
 		  grid-template-areas:
 		      "abstract abstract abstract . teaser teaser"
+			  "abstract2 abstract2 abstract2 . teaser teaser"
 			  ". sechead sechead sechead sechead ."
 		      ". fig1 txt1 txt1 txt1 ."
 		      ". txt2 txt2 txt2 txt2 ."
@@ -54,6 +54,10 @@
 
 	.abs {
 		grid-area: abstract;
+		padding: 0 1em 0 1em;
+	}
+	.abs2 {
+		grid-area: abstract2;
 		padding: 0 1em 0 1em;
 	}
 	.teaserFig {
@@ -108,6 +112,13 @@
 		<h1>Active Video Summarization: </h1>
 		<h1>Customized Summaries via On-line Interaction with the User.</h1>
   	    <hr>
+        <div class='nav-links' text-align='center'>
+                <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">Paper</a>
+                - <a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">Demo</a>
+                - <a href="https://github.com/GarciaDelMolino/AVS">Code</a>
+		- <a href="files/AVS.txt">BibTeX</a></p>
+        </div> 
+		
 		<p> To facilitate the browsing of long videos, automatic video
 		summarization provides an excerpt that represents its content.
 		In the case of egocentric and consumer videos, due
@@ -124,8 +135,10 @@
 		next is inferred from the previous feedback. We evaluate
 		AVS in the commonly used UTEgo dataset. We also
 		introduce a new dataset for customized video summarization
-		(CSumm) recorded with a Google Glass. </p> 
+		(CSumm) recorded with a Google Glass. 
+	  </div>     
 
+      <div class="abs2	">
 		<p> The results
 		show that AVS achieves an excellent compromise between
 		usability and quality. In 41% of the videos, AVS is considered
@@ -133,14 +146,7 @@
 		generated. Also, when looking for specific events in the
 		video, AVS provides an average level of satisfaction higher
 		than those of all other baselines after only six questions to the
-		user. </p> 
-
-        <div class='nav-links' text-align='center'>
-                <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">Paper</a>
-                - <a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">Demo</a>
-                - <a href="https://github.com/GarciaDelMolino/AVS">Code</a>
-		- <a href="files/AVS.txt">BibTeX</a></p>
-        </div> 
+		user.
       </div>     
       	<div class="teaserFig">
       	<img src="files/AVS.png" width="100%">
@@ -187,7 +193,7 @@
 		</ol>
 		We use a probabilistic approach
 		based on active inference in Conditional Random Fields
-		(CRFs) (Roig et al. 2013). to infer the most likely summary,
+		(CRFs) to infer the most likely summary,
 		and to estimate the next question to ask.</p> 
 	</div>
 
@@ -231,4 +237,5 @@
   </section>
 </body>
 </html>
+
 
