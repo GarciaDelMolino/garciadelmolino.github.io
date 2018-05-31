@@ -7,40 +7,48 @@
 	<style>
 	.site {
 		display: grid;
-		grid-template-columns: .5fr 3fr 2.5fr .5fr 3fr .5r;
-		grid-template-rows: repeat(8, auto);
+		grid-template-columns: 3.5fr 2.5fr 4fr 1fr;
+		grid-template-rows: auto;
 		grid-template-areas:
-			"abstract abstract abstract teaser teaser teaser"
-			"abstract2 abstract2 abstract2 abstract2 abstract2 . "
-			"sechead sechead sechead sechead sechead"
-		    "fig1 fig1 txt1 txt1 txt1"
-			". txt12 txt12 txt12 txt12"
-		    "txt2 txt2 txt2 txt2 txt2"
-		    "fig21 fig23 fig23 fig23 fig22";
-		    ". fig2leg fig2leg fig2leg .";
+			"abstract abstract teaser teaser"
+			"abstract2 abstract2 abstract2 . "
+			"awehead awehead awehead awehead"
+			"sechead sechead sechead sechead"
+		    "fig1 fig1 txt1 txt1"
+			"txt12 txt12 txt12 txt12"
+		    "txt2 txt2 txt2 txt2";
 		align-items: center;
+		margin: 0 35px 35px 35px;
+	}
+	.figGrid{
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"area1 area2 area3";
+		grid-column-gap: 1em;
+		align-items: center;
+	}
+	.figure{
+		padding: 0 1em 0 1em;
+		text-align: center;
 	}
 
 	@media (max-width: 900px){
 	  .site {
 		  display: grid;
-		  grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
-		  grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+		  grid-template-columns: auto;
+		  grid-template-rows: auto;
 		  grid-template-areas:
-		      "abstract abstract abstract abstract abstract"
-			  "abstract2 abstract2 abstract2 abstract2 abstract2"
-		      "teaser teaser teaser teaser teaser"
-			  "awehead awehead awehead awehead awehead"
-			  "sechead sechead sechead sechead sechead"
-		      "txt1 txt1 txt1 txt1 txt1"
-		      ". fig1 fig1 fig1 ." 
-		      "txt12 txt12 txt12 txt12 txt12"
-		      "txt2 txt2 txt2 txt2 txt2"
-		      ". fig21 fig21 fig21 ."
-		      ". fig22 fig22 fig22 ."
-		      ". fig23 fig23 fig23 ."
-		      ". . fig2leg . .";
-		align-items: center;
+		      "abstract"
+			  "abstract2"
+		      "teaser"
+			  "awehead"
+			  "sechead"
+			  "fig1"
+		      "txt1"
+		      "txt12"
+		      "txt2";
 		font-size: 10pt;
 	  }
 	  
@@ -49,73 +57,48 @@
 			font-weight: 300;
 			font-size: 20pt;
 	  }
+		.figGrid{
+			grid-template-columns: auto;
+			grid-template-areas:
+				"area1"
+				"area2"
+				"area3";
+			margin: 0 5% 0 5%;
+			grid-row-gap: 1em;
+		}
+		.figure{
+			padding: 0 5% 0 5%;
+			text-align: center;
+		}
+
 	}
 	@media (min-width: 1500px){
 	  .site {
 		  display: grid;
-		  grid-template-columns: 1fr 4fr 2fr 0.5fr 4.5fr 1fr;
-		  grid-template-rows: auto auto auto auto auto auto auto auto;
+		  grid-template-columns: 1fr 6fr 0.5fr 4.5fr 1fr;
+		  grid-template-rows: auto;
 		  grid-template-areas:
-		      "abstract abstract abstract . teaser teaser"
-			  "abstract2 abstract2 abstract2 abstract2 abstract2 ."
-			  ". awehead awehead awehead awehead ."
-			  ". sechead sechead sechead sechead ."
-		      ". fig1 txt1 txt1 txt1 ."
-			  ". txt12 txt12 txt12 txt12 ."
-		      ". txt2 txt2 txt2 txt2 ."
-		      ". fig21 fig23 fig2leg fig22 .";
+		      "abstract abstract . teaser teaser"
+			  "abstract2 abstract2 . teaser teaser"
+			  ". awehead awehead awehead ."
+			  ". sechead sechead sechead ."
+		      ". fig1 txt1 txt1 ."
+			  ". txt12 txt12 txt12 ."
+		      ". txt2 txt2 txt2 ."
 	  }
+	  margin: 0 35px 35px 35px;
 	}
 
+
 	.abs {
-		grid-area: abstract;
 		padding: 0 1em 0 1em;
 	}
-	.abs2 {
-		grid-area: abstract2;
+	.site .header {
 		padding: 0 1em 0 1em;
 	}
-	.teaserFig {
-		grid-area: teaser;
-		text-align: center;
-	}
-	.awesomeHeader {
-		grid-area: awehead;
-		padding: 0 1em 0 1em;
-	}
-	.sectionHeader {
-		grid-area: sechead;
-		padding: 0 1em 0 1em;
-	}
-	.section1-content {
+	.site .content {
 		grid-area: txt1;
 		padding: 0 1em 0 1em;
-	}
-	.section1-content2 {
-		grid-area: txt12;
-		padding: 0 1em 0 1em;
-	}
-	.section1-fig {
-		grid-area: fig1;
-		padding: 0 1em 0 1em;
-		text-align: center;		
-	}
-	.section2-content {
-		grid-area: txt2;
-		padding: 0 1em 0 1em;
-	}
-	.section2-fig1 {
-		grid-area: fig21;
-	}
-	.section2-fig2 {
-		grid-area: fig22;
-	}
-	.section2-fig3 {
-		grid-area: fig23;
-	}
-	.section2-figleg {
-		grid-area: fig2leg;
-		text-align: center;	
 	}
 	.site p {
 		text-align: justify;
@@ -133,7 +116,7 @@
     <a href="https://garciadelmolino.github.io">Home</a>
   </div>
   <section class="site">
-      <div class="abs">
+      <div class="abs" style="grid-area: abstract;">
 		<h1>Personalized Highlight Detection for Automatic GIF Creation</h1>
   	    <hr>
         <div class='nav-links' text-align='center'>
@@ -159,29 +142,37 @@
 		of their interests.  
 	  </div>     
 
-      <div class="abs2">
+      <div class="abs" style="grid-area: abstract2;">
 		<p> Our experiments show that using the user history
 		substantially improves the prediction accuracy. On our test set of
 		850 videos, our model improves the recall over 8% with respect to
 		generic highlight detectors. Our method proves more precise than the
 		user-agnostic baselines even with just one person-specific example.
       </div>     
-      	<div class="teaserFig">
+      	<div class="figure" style="grid-area: teaser;">
       	<img src="files/PHD-GIFs.png" width="100%">
       </div>
 
-	<div class='awesomeHeader'>
+	<div class='header' style='grid-area: awehead;'>
 		<hr>
 		<h2 text-align='left'>The awesomness of PHD-GIFs: </h2>
+		<section class="figGrid">
+			<div class="figure" style="grid-area: area1;">
+				<img src="files/boxing.png" width="100%">
+			</div>
+			<div class="figure" style="grid-area: area2;">
+				<img src="files/trees.png" width="100%">
+			</div>	
+		</section>
 	</div>	  
-	<div class='sectionHeader'>
+	<div class='header' style='grid-area: sechead;'>
 		<hr>
-		<h2 text-align='left'>Overview of PHD-GIFs </h2>
+		<h2 text-align='left'>Method Overview </h2>
 	</div>
-	<div class='section1-fig'>
+	<div class="figure" style="grid-area: fig1;">
 		<img src="files/PHDarch.png" width="100%">
 	</div>	
-	<div class='section1-content'>
+	<div class='content' style='grid-area: txt1;'>
 		<p> We propose a model that predicts the score of a segment
 		as a function of both the segment itself and the user’s previously
 		selected highlights. As such, the model learns to take into account
@@ -195,7 +186,7 @@
 		highlights for all users and new user information can trivially be included.
 		</p> 
 	</div>	
-	<div class='section1-content2'>
+	<div class='content' style='grid-area: txt12;'>
 		<p>
 		We propose two models for for our ranking objective, which are combined with late
 		fusion. One takes the segment representation and aggregated history
@@ -203,7 +194,7 @@
 		between the segments and the history (the SVM model).</p> 
 	</div>
 
-	<div class='section2-content'>
+	<div class='content' style='grid-area: txt2;'>
 		<hr>
 		<h2 text-align='left'>Experimental Results </h2>
 
@@ -217,24 +208,19 @@
 				are both important and that there is a lot of signal contained
 				in a user’s history about his future choice of highlights.
                 </p>
-			<!--
-            <p text-align='center'>
-                <img src="files/AVSresults.png" width="100%">
-            </p> -->	
+		<section class="figGrid">
+			<div class="figure" style="grid-area: area1;">
+				<img src="files/PHDmap.png" width="100%">
+			</div>
+			<div class="figure" style="grid-area: area2;">
+				<img src="files/PHDmsd.png" width="100%">
+			</div>	
+			<div class="figure" style="grid-area: area3;">
+				<img src="files/PHDrec.png" width="100%">
+			</div>	
+		</section>
+		<div class="figure"><img src="files/PHDlegend.png" width="70%"></div>
 	</div>
-	<!--
-	<div class="section2-fig1">
-        <img src="files/PHDmap.png" width="100%">
-    </div>
-	<div class="section2-fig2">
-		<img src="files/PHDmse.png" width="100%">
-    </div>
-	<div class="section2-fig3">
-		<img src="files/PHDrec.png" width="100%">
-    </div>
-	<div class="section2-figleg">
-        <img src="files/PHDlegend.png" width="70%">
-    </div> -->	
   </section>
 </body>
 </html>
