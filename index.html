@@ -22,7 +22,8 @@
 		border-radius: 5000px 5000px 0 0;
 		box-shadow: 10px 1.3em 20em 5em #fcfff7; */
 		background: radial-gradient(farthest-corner at 50% 100%, rgba(252, 255, 247, 0.8) 50%, rgba(252, 255, 247, 0));
-	    font-size: 1.2em;
+	    	font-size: 1.2em;
+		margin: 0 35px 0 35px;
 	}
 
 	.site {
@@ -39,14 +40,37 @@
 		align-items: center;
 		padding: 0 1em 1em 1em;
 		border-radius: 5px;
+		margin: 0 35px 35px 35px;
+	}
+
+	.story {
+		display: grid;
+		grid-template-columns: 9em auto;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"dates details";
+		grid-column-gap: 1em;
+		font-size: .9em;
+		margin: 0 2% 0 0;
+	}
+	.story .dates {
+		grid-area: dates;
+		text-align: right;
+		display: block;	
+	}
+	.story .details {
+		grid-area: details;
+		text-align: justify;
+		display: block;	
+		padding: 0 0 .5em 0;
 	}
 	
 	@media screen and (min-width: 1500px){
 	  .site {
-		  margin: 0 35px 35px 35px;
+		  margin: 0 70px 70px 70px;
 	  }
 	  .mainHeader{
-		  margin: 0 35px 0 35px;
+		  margin: 0 70px 0 70px;
 	  }
 	}
 	
@@ -69,30 +93,27 @@
 		align-items: center;
 		font-size: 1em;
 	  }
+	  .story {
+		display: grid;
+		grid-template-columns: .5fr 5fr 4fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"dates dates ."
+			". details details";
+		padding: 0;
+	  }
+	  .story .dates {
+		text-align: left;
+          }
 	}
 	
 	@media (max-width: 500px){
 	  .site {
-		  display: grid;
-		  grid-template-columns: 0fr 3fr 0fr;
-		  grid-template-rows: auto;
-		  grid-template-areas:
-			"header header header"
-			". about ." 
-			". gallery ."
-			". twitter ." 
-		    	"news news news"
-		    	". PHD ." 
-			". AVS ." 
-			". THMS ." 
-			". CLEF ." 
-			". NTCIR .";
-		align-items: center;
 		font-size: .8em;
 	  }
 	  .site h1 {
-			font-size: 1.5em;
-		}
+		font-size: 1.5em;
+	  }
 	}
 
 
@@ -106,7 +127,7 @@
 		grid-area: about;	
 		text-align: center;	
 		position: relative;
-		padding: 0 .5em 0 .5em;
+		margin: 0 3% 0 3%;
 	}
 	
 	.aboutMe img {
@@ -143,7 +164,7 @@
 		grid-area: gallery;
 		text-align: center;		
 		position: relative;
-		padding: 0 .5em 0 .5em;
+		margin: 0 3% 0 3%;
 	}
 	
 	.gallery img {
@@ -203,7 +224,8 @@
 		border: 5px solid #f7efd9;
 		height: 100%;
    		box-sizing: border-box;
-    		box-shadow: 2px 2px 2px #999999;
+    		box-shadow: 2px 2px 2px #eae2cc;
+		border-radius: 5px;
 	}
 	.paper li {
 	  list-style-type: none;
@@ -261,7 +283,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 </head>
 
-<body style="background-image:url(files/origami_full.jpg);">
+<body style="background: #b5cea9;"> <!-- background-image:url(files/origami_full.jpg) -->
      <div class="mainHeader">
 	<h1 style="font-weight: 900;">Ana García del Molino</h1>
 	<hr>
@@ -357,9 +379,40 @@
       <div class='content'>
             <h1>What's up?</h1>
             <hr>
-		<ul>
-                            <li> Waiting for ACM reviews!!! </li>
-                </ul>
+	    <section class='story'>
+			<div class='dates'>now</div>
+			<div class='details'>Waiting for ACM reviews!!!</div>
+		</section>
+		<section class='story'>
+			<div class='dates'>Dec.'17:</div>
+			<div class='details'>Our <a href="https://github.com/gyglim/personalized-highlights-dataset">large-scale dataset for personalized highlight detection</a> is now public. It contains more than 200,000 gifs from almost 14,000 users.</div>
+		</section>
+
+		<section class='story'>
+			<div class='dates'>Sept.'17:</div>
+			<div class='details'> Our lifelog summarization approach has ranked 1st at the ImageCLEF Lifelog task.</div>
+		</section>
+		<section class='story'>
+			<div class='dates'>Jun.'17 - Sept.'17:</div>
+			<div class='details'><a href="https://gifs.com/"> Gifs.com </a> has hired me as a research consultant! We're facilitating the generation of GIFs by providing personalized GIF suggestions.</div>
+		</section>
+		<section class='story'>
+			<div class='dates'>May.'17:</div>
+			<div class='details'><a href="https://drive.google.com/drive/u/1/folders/0BxbxH0v4gna2d0xyMjlKUTRnZmM">CSumm</a>, a large First Person View video dataset recorded with Google Glass, is now publicly available.</div>
+		</section>
+		<section class='story'>
+			<div class='dates'>Feb.'17 - Apr.'17:</div>
+			<div class='details'>I'm visiting the <a href="https://cbmm.mit.edu/">CBMM at MIT</a> for a couple of weeks.</div>
+		</section>
+		<section class='story'>
+			<div class='dates'>Feb.'17:</div>
+			<div class='details'>We're presenting our work <a href="https://garciadelmolino.github.io/avs.html">"Active Video Summarization: Customized Summaries via On-line Interaction with the User."</a> at the AAAI International Conference in San Francisco!</div>
+		</section>
+		<section class='story'>
+			<div class='dates'></div>
+			<div class='details'></div>
+		</section>
+
 		<p></p>
             <h1>Selected Publications</h1>
             <hr>
