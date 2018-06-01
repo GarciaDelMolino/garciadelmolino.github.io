@@ -23,7 +23,7 @@
 		box-shadow: 10px 1.3em 20em 5em #fcfff7; */
 		background: radial-gradient(farthest-corner at 50% 100%, rgba(252, 255, 247, 0.8) 50%, rgba(252, 255, 247, 0));
 	    	font-size: 1.2em;
-		margin: 0 35px 0 35px;
+		margin: 0 7% 0 7%;
 	}
 
 	.site {
@@ -40,7 +40,7 @@
 		align-items: center;
 		padding: 0 1em 1em 1em;
 		border-radius: 5px;
-		margin: 0 35px 35px 35px;
+		margin: 0 7% 35px 7%;
 	}
 
 	.story {
@@ -67,14 +67,36 @@
 	
 	@media screen and (min-width: 1500px){
 	  .site {
-		  margin: 0 70px 70px 70px;
+		  margin: 0 10% 70px 10%;
 	  }
 	  .mainHeader{
-		  margin: 0 70px 0 70px;
+		  margin: 0 10% 0 10%;
 	  }
 	}
 	
 	@media (max-width: 800px){
+	  .site {
+		font-size: .9em;
+		margin: 0 3% 20px 3%;
+	  }
+	  .mainHeader{
+		margin: 0 3% 0 3%;
+	  }
+	  .story {
+		display: grid;
+		grid-template-columns: .5fr 5fr 4fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"dates dates ."
+			". details details";
+		padding: 0;
+	  }
+	  .story .dates {
+		text-align: left;
+          }
+	}
+	
+	@media (max-width: 600px){
 	  .site {
 		  display: grid;
 		  grid-template-columns: 0fr 3fr 0fr;
@@ -91,28 +113,14 @@
 			". CLEF ." 
 			". NTCIR .";
 		align-items: center;
-		font-size: 1em;
-	  }
-	  .story {
-		display: grid;
-		grid-template-columns: .5fr 5fr 4fr;
-		grid-template-rows: auto;
-		grid-template-areas:
-			"dates dates ."
-			". details details";
-		padding: 0;
-	  }
-	  .story .dates {
-		text-align: left;
-          }
-	}
-	
-	@media (max-width: 500px){
-	  .site {
 		font-size: .8em;
+		margin: 0;
 	  }
 	  .site h1 {
 		font-size: 1.5em;
+	  }
+	  .mainHeader{
+		  margin: 0;
 	  }
 	}
 
@@ -213,12 +221,12 @@
 	.paper {
 		display: grid;
 		grid-template-columns: 5fr 3fr;
-		grid-template-rows: auto 2fr;
+		grid-template-rows: auto;
 		grid-template-areas:
 			"title title"
-			"teaser info";
+			"teaser authors"
+			"teaser links";
 		grid-column-gap: 1em;
-		grid-row-gap: 1em;
 		padding: 1em;
 		margin: 0 1em 0 1em;
 		border: 5px solid #f7efd9;
@@ -236,6 +244,10 @@
 		display: block;	
 		font-weight: 700;
 		color: #005751;
+		padding: 0 0 1em 0;
+	}
+	.paper .info {
+		margin: 0 0 -1em 0;
 	}
 	.title i {
 		font-weight: 500;
@@ -274,6 +286,31 @@
 	    opacity: 0.5;
   	    transition: .3s ease;
 
+	}
+
+	@media screen and (min-width: 600px) and (max-width: 1100px){
+		.paper {
+			grid-template-columns: 4fr 4fr;
+			grid-template-rows: auto;
+			grid-template-areas:
+				"title title"
+				"authors authors"
+				"teaser teaser"
+				"links links";
+		}
+		.paper li{
+			display: inline;
+		}
+		.paper ul{
+		    text-align: center;
+			-webkit-padding-start: 0;
+		}
+		.paper .title {
+			padding: 0;
+		}
+		.paper .info {
+			margin: 0;
+		}
 	}
 	</style>
     <title>Ana Garcia del Molino</title>
@@ -314,8 +351,10 @@
 
        <section class='paper' style="grid-area: PHD;">
        		<div class="title"><a href="https://garciadelmolino.github.io/phd.html"> PHD-GIFs: Personalized Highlight Detection for Automatic GIF Creation.</a><i>arXiv 2017</i> <hr> </div>
-       		<div class="info"> 
-			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">M. Gygli </p></span> 
+       		<div class="info" style="grid-area: authors;"> 
+			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">M. Gygli</span> </p>
+		</div>
+		<div class="info" style="grid-area: links;"> 
                         <ul>
                             <li><a href="http://arxiv.org/abs/1804.06604">[Paper]</a>
                            <li> <a href="https://github.com/gyglim/personalized-highlights-dataset">[Dataset]</a>
@@ -330,8 +369,10 @@
 
        <section class='paper' style="grid-area: AVS;">
        		<div class="title"> <a href="https://garciadelmolino.github.io/avs.html">Active Video Summarization: Customized Summaries via On-line Interaction with the User.</a> <i>AAAI 2017</i> <hr> </div>
-       		<div class="info"> 
+       		<div class="info" style="grid-area: authors;"> 
 			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">X. Boix</span>, <span class="author">J.H. Lim</span>, <span class="author">A.H. Tan</span> </p>
+		</div>
+		<div class="info" style="grid-area: links;"> 
                         <ul>
                             <li><a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">[Paper]</a>
                             <li><a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">[Demo]</a>
@@ -347,8 +388,10 @@
 
        <section class='paper' style="grid-area: THMS;">
        		<div class="title"> Summarization of egocentric videos: A comprehensive survey. <i>IEEE T-HMS 2017</i><hr> </div>
-       		<div class="info"> 
+       		<div class="info" style="grid-area: authors;"> 
 			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">C. Tan</span>, <span class="author">J.H. Lim</span>, <span class="author">A.H. Tan</span>  </p>
+		</div>
+		<div class="info" style="grid-area: links;"> 
                         <ul>
                             <li><a href="files/IEEE-THMS-Garcia-del-Molino.pdf">[Paper]</a> 
 			    <li><a href="files/THMS.txt">[BibTeX]</a>
@@ -362,8 +405,10 @@
 
        <section class='paper' style="grid-area: CLEF;">
        		<div class="title"> VC-I2R@ ImageCLEF2017: ensemble of deep learned features for lifelog video summarization. <i>CLEF 2017</i> <hr> </div>
-       		<div class="info"> 
+       		<div class="info" style="grid-area: authors;"> 
 			<p><span class="author"><b>A. G. del Molino</b></span>, <span class="author">B. Mandal</span>, <span class="author">J. Lin</span>, <span class="author">J.H. Lim</span>, <span class="author"><i>et. al.</i></span>  </p>
+		</div>
+		<div class="info" style="grid-area: links;"> 
                         <ul>
                             <li><a href="http://oar.a-star.edu.sg/jspui/handle/123456789/2158">[Paper]</a>
 			    <li><a href="files/CLEF.txt">[BibTeX]</a>
