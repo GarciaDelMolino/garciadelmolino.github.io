@@ -121,6 +121,13 @@
 				<img src="files/CES-qualitative.png" width="100%">
 			</div>
 		</section>
+			
+		<p>In this example, those frames which are false positives or false negatives
+		in the baselines are highlighted. Unlike the baselines, CES is able to ignore occasional occlusions as long as the
+		different points of view span less frames than CES’ memory span (A). It is also capable of detecting boundaries that separate
+		heterogeneous events such as riding a bike on the street and shopping at the supermarket (C, D). Most of the boundaries not detected
+		by CES correspond to events that take place within the same physical space (B) and short transitions (C, D), e.g. parking
+		the bike.
 	</div>	  
 	<div class='header' style='grid-area: sechead;'>
 		<hr>
@@ -173,8 +180,8 @@
 		manual annotations.
                 </p>
 		<section class="figGrid", >
-			<div class="figure" style="grid-area: area2; width: 500px">
-				<img src="files/CES-results.png" width="100%">
+			<div class="figure" style="grid-area: area2;">
+				<img src="files/CES-results.png" style="width:100%; max-width:500px">
 			</div>
 		</section>
 	</div>
