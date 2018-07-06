@@ -153,10 +153,11 @@
 		<p>
 		CES consists of two modules:
 		<ol type="i">
-		  <li>the Visual Context Predictor (VCP), an LSTM network that predicts the visual context
+		  <li>the Visual Context Predictor (VCP), an LSTM (1) network that predicts the visual context
 		of the upcoming frame, either in the past or in the future depending
-		on the sequence ordering. </li>
-		  <li>the event boundary detector,
+		on the sequence ordering. An auto-encoder architecture (2) is used to train VCP with the objective of reaching minimum prediction mse.
+		  </li>
+		  <li>the event boundary detector (3),
 		that compares the visual context at each time-step given the frame
 		sequence from the past, with the visual context given the sequence
 		in the future.</li>
@@ -164,7 +165,6 @@
 		</p> 
 
 		<p>
-		An auto-encoder architecture is used to train VCP using a future prediction mse objective.
 		</p> 
 	</div>
 
