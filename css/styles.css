@@ -29,113 +29,42 @@ h1 {
     font-size: 24pt;
 }
 
-.vert-aligner {
-    display: flex;
-    align-items: center;
-}
-
-.top-bar {
-    flex: 1;
-    margin: 1em 0 0 0;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.nav-div {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-}
-
-.nav-img {
-    flex: 1;
-    padding: 0 1em 0 1em;
-    margin: 0 1em 0 1em;
-}
-
-.nav-div-img {
-    flex: 1;
-    padding: 0 1em 0 1em;
-    margin: 0 1em 0 1em;
-    position: relative;
-    width: 80%;
-}
-
-.nav-text {
-    flex: 4;
-    padding: 0 1em 0 1em;
-    margin: 0 1em 0 1em;
-    text-align: justify;
-}
-
-.nav-text-small {
-    flex: 4;
-    padding: 0 12em 0 1em;
-    margin: 0 12em 0 1em;
-    text-align: justify;
-}
-
 .nav-links {
     text-align: center;
 }
 
-.content0 {
-    padding: 1em;
-    margin: 1em 0;
-    border-radius: 5px;
+.paper_site {
+	display: grid;
+	grid-template-rows: auto;
+	align-items: center;
+	margin: 0 35px 35px 35px;
 }
 
-.single-column {
-    padding: 1em;
+.figGrid{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"area1 area2 area3";
+	grid-column-gap: 1em;
+	align-items: center;
+	text-align: center;
 }
 
-.two-column {
-    display: flex;
-    flex-direction: row;
+.paper_site	.figure{
+	padding: 0 1em 0 1em;
+	text-align: center;
 }
 
-.left-column {
-    flex: 1;
-    padding: 1em;
-    order: 0;
+.paper_site	.abs {
+	padding: 0 1em 0 1em;
 }
-
-.right-column {
-    flex: 1;
-    padding: 1em;
+.paper_site .header {
+	padding: 0 1em 0 1em;
 }
-
-.content p {
-    text-align: justify;
+.paper_site .content {
+	padding: 0 1em 0 1em;
 }
-
-.paper0 {
-    border-radius: 5px;
-    border-width: 2px;
-    border-style: solid;
-    background: white;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 2px 2px 2px #999999;
-}
-
-.paperImg {
-    margin: 1em;
-}
-
-.paperImg img {
-    width: 150px;
-    /* height: 125px;*/
-}
-
-.paperInfo {
-    flex: 1;
-    margin: 1em;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.paperInfo p {
-    margin: 0;
+.paper_site p {
+	text-align: justify;
 }

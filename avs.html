@@ -2,101 +2,65 @@
 <meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
 <html>
 <head>
+    <link href="css/styles.css" rel="stylesheet">
 	<!-- Grid -->	
 	<style>
-	.site {
-		display: grid;
-		grid-template-columns: 4fr 1fr 1fr 1fr 4fr;
-		grid-template-rows: auto auto auto auto auto auto;
+	.paper_site {
+		grid-template-columns: 4fr 2fr 5fr;
 		grid-template-areas:
-			"abstract abstract abstract teaser teaser"
-			"abstract2 abstract2 abstract2 abstract2 abstract2"
-			"sechead sechead sechead sechead sechead"
-		    "fig1 txt1 txt1 txt1 txt1"
-		    "txt2 txt2 txt2 txt2 txt2"
-		    "fig21 fig2leg fig2leg fig2leg fig22";
-		align-items: center;
+			"abstract abstract teaser"
+			"abstract2 abstract2 abstract2"
+			"sechead sechead sechead"
+		    "fig1 txt1 txt1"
+		    "txt2 txt2 txt2"
+	}
+
+	.figGrid{
+		grid-template-columns: 3fr 1.2fr 3fr;
 	}
 
 	@media (max-width: 900px){
-	  .site {
-		  display: grid;
-		  grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
-		  grid-template-rows: auto auto auto auto auto auto auto auto auto;
+		.paper_site {
+		  grid-template-columns: 1fr 4fr 1fr;
 		  grid-template-areas:
-		      "abstract abstract abstract abstract abstract"
-			  "abstract2 abstract2 abstract2 abstract2 abstract2"
-		      "teaser teaser teaser teaser teaser"
-			  "sechead sechead sechead sechead sechead"
-		      ". fig1 fig1 fig1 ." 
-		      "txt1 txt1 txt1 txt1 txt1"
-		      "txt2 txt2 txt2 txt2 txt2"
-		      ". fig21 fig21 fig21 ."
-		      ". fig22 fig22 fig22 ."
-		      ". . fig2leg . .";
-		align-items: center;
-	  }
+			  "abstract abstract abstract"
+			  "abstract2 abstract2 abstract2"
+			  "teaser teaser teaser"
+			  "sechead sechead sechead"
+			  ". fig1 ."
+			  "txt1 txt1 txt1"
+			  "txt2 txt2 txt2";
+		  font-size: 10pt;
+		}
+	  
+		h1 {
+			margin: 0;
+			font-weight: 300;
+			font-size: 20pt;
+		}
+		.figGrid{
+			grid-template-columns: 1fr 1.5fr 1fr;
+			grid-template-areas:
+				"area1 area1 area1"
+				"area3 area3 area3"
+				". area2 .";
+			margin: 0 5% 0 5%;
+			grid-row-gap: 1em;
+		}
+		.figure{
+			padding: 0 5% 0 5%;
+			text-align: center;
+		}
 	}
-	@media (min-width: 1500px){
-	  .site {
-		  display: grid;
-		  grid-template-columns: 1fr 4fr 2fr 0.5fr 4.5fr 1fr;
-		  grid-template-rows: auto auto auto auto auto;
-		  grid-template-areas:
-		      "abstract abstract abstract . teaser teaser"
-			  "abstract2 abstract2 abstract2 . teaser teaser"
-			  ". sechead sechead sechead sechead ."
-		      ". fig1 txt1 txt1 txt1 ."
-		      ". txt2 txt2 txt2 txt2 ."
-		      ". fig21 fig2leg fig2leg fig22 .";
+
+	@media (min-width: 1200px){
+	  body {
+		  width: 1020px;
 	  }
 	}
 
-	.abs {
-		grid-area: abstract;
-		padding: 0 1em 0 1em;
-	}
-	.abs2 {
-		grid-area: abstract2;
-		padding: 0 1em 0 1em;
-	}
-	.teaserFig {
-		grid-area: teaser;
-		text-align: center;
-	}
-	.sectionHeader {
-		grid-area: sechead;
-		padding: 0 1em 0 1em;
-	}
-	.section1-content {
-		grid-area: txt1;
-		padding: 0 1em 0 1em;
-	}
-	.section1-fig {
-		grid-area: fig1;
-		padding: 0 1em 0 1em;
-		text-align: center;		
-	}
-	.section2-content {
-		grid-area: txt2;
-		padding: 0 1em 0 1em;
-	}
-	.section2-fig1 {
-		grid-area: fig21;
-	}
-	.section2-fig2 {
-		grid-area: fig22;
-	}
-	.section2-figleg {
-		grid-area: fig2leg;
-		text-align: center;	
-	}
-	.site p {
-		text-align: justify;
-	}
 	</style>
     <title>Active Video Summarization</title>
-    <link href="css/styles.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
@@ -107,12 +71,12 @@
   <div text-align='left'>
     <a href="https://garciadelmolino.github.io">Home</a>
   </div>
-  <section class="site">
-      <div class="abs">
+  <section class="paper_site">
+      <div class="abs" style="grid-area: abstract;">
 		<h1>Active Video Summarization: </h1>
 		<h1>Customized Summaries via On-line Interaction with the User.</h1>
   	    <hr>
-        <div class='nav-links' text-align='center'>
+        <div class='nav-links'>
                 <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14856/14279">Paper</a>
                 - <a href="https://www.youtube.com/watch?v=jLDe1uB2vj4">Demo</a>
                 - <a href="https://github.com/GarciaDelMolino/AVS">Code</a>
@@ -138,7 +102,7 @@
 		(CSumm) recorded with a Google Glass. 
 	  </div>     
 
-      <div class="abs2	">
+      <div class="abs" style="grid-area: abstract2;">
 		<p> The results
 		show that AVS achieves an excellent compromise between
 		usability and quality. In 41% of the videos, AVS is considered
@@ -148,18 +112,18 @@
 		than those of all other baselines after only six questions to the
 		user.
       </div>     
-      	<div class="teaserFig">
+      	<div class="figure" style="grid-area: teaser;">
       	<img src="files/AVS.png" width="100%">
       </div>
 
-	<div class='sectionHeader'>
+	<div class='header' style='grid-area: sechead;'>
 		<hr>
 		<h2 text-align='left'>Overview of Active Video Summarization </h2>
 	</div>
-	<div class='section1-fig'>
+	<div class="figure" style="grid-area: fig1;">
 		<img src="files/AVSalgo.png" width="100%">
 	</div>	
-	<div class='section1-content'>
+	<div class='content' style='grid-area: txt1;'>
 		<p> The aim of AVS is to provide a customized summary with as
 		little effort as possible from the user side. The system first
 		asks for the user’s initial preferences, selected from a set
@@ -197,7 +161,7 @@
 		and to estimate the next question to ask.</p> 
 	</div>
 
-	<div class='section2-content'>
+	<div class='content' style='grid-area: txt2;'>
 		<hr>
 		<h2 text-align='left'>Experimental Results </h2>
 
@@ -220,20 +184,19 @@
 		We score the summaries according to how many events appear on it.
 		The results using the different baselines are the following:
                 </p>
-			<!--
-            <p text-align='center'>
-                <img src="files/AVSresults.png" width="100%">
-            </p> -->	
-	</div>
-	<div class="section2-fig1">
-        <img src="files/AVSresults1.png" width="100%">
-    </div>
-	<div class="section2-fig2">
-		<img src="files/AVSresults2.png" width="100%">
-    </div>
-	<div class="section2-figleg">
-        <img src="files/AVSresultsLegend.png" width="50%">
-    </div>
+			
+		<section class="figGrid">
+			<div class="figure" style="grid-area: area1;">
+				<img src="files/AVSresults1.png" width="100%">
+			</div>
+			<div class="figure" style="grid-area: area2;">
+				<img src="files/AVSresultsLegend.png" width="100%">
+			</div>	
+			<div class="figure" style="grid-area: area3;">
+				<img src="files/AVSresults2.png" width="100%">
+			</div>	
+		</section>
+	
   </section>
 </body>
 </html>

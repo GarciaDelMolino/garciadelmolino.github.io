@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<meta charset='UTF-8' name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+    <link href="css/styles.css" rel="stylesheet">
+	<!-- Grid -->	
+	<style>
+	.paper_site {
+		grid-template-columns: 6fr 1fr 4fr;
+		grid-template-areas:
+			"abstract teaser teaser"
+			"abstract2 abstract2 abstract2"
+			"sechead sechead sechead"
+		    "txt1 txt1 fig1"
+			"txt12 txt12 txt12"
+			"awehead awehead awehead"
+		    "txt2 txt2 txt2";
+	}
+
+	@media (max-width: 900px){
+		.paper_site {
+		  grid-template-columns: auto;
+		  grid-template-areas:
+			  "abstract"
+			  "abstract2"
+			  "teaser"
+			  "awehead"
+			  "sechead"
+			  "fig1"
+			  "txt1"
+			  "txt12"
+			  "txt2";
+		  font-size: 10pt;
+		}
+	  
+		h1 {
+			margin: 0;
+			font-weight: 300;
+			font-size: 20pt;
+		}
+		.figGrid{
+			grid-template-columns: auto;
+			grid-template-areas:
+				"area1"
+				"area2"
+				"area3";
+			margin: 0 5% 0 5%;
+			grid-row-gap: 1em;
+		}
+		.figure{
+			padding: 0 5% 0 5%;
+			text-align: center;
+		}
+	}
+
+	@media (min-width: 1200px){
+	  body {
+		  width: 1020px;
+	  }
+	}
+
+
+	</style>
+    <title>Contextual Event Segmentation</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+</head>
+
+
+<body>
+  <div text-align='left'>
+    <a href="https://garciadelmolino.github.io">Home</a>
+  </div>
+  <section class="paper_site">
+      <div class="abs" style="grid-area: abstract;">
+		<h1>Predicting Visual Context for Unsupervised Event Segmentation in Continuous Photo-streams</h1>
+  	    <hr>
+		<!-- 
+        <div class='nav-links'>
+                <a href="ACM">Paper</a>
+                - <a href="TBD">Dataset</a>
+				- <a href="files/ces.txt">BibTeX</a>
+        </div> 
+		-->
+		<p> Segmenting video content into events provides semantic structures
+			for indexing, retrieval, and summarization. Since motion cues are
+			not available in continuous photo-streams, and annotations in lifelogging
+			are scarce and costly, the frames are usually clustered into
+			events by comparing the visual features between them in an unsupervised
+			way. However, such methodologies are ineffective to
+			deal with heterogeneous events, e.g. taking a walk, and temporary
+			changes in the sight direction, e.g. at a meeting. 
+			</p>
+	  </div>     
+
+      <div class="abs" style="grid-area: abstract2;">
+		<p> To address these
+			limitations, we propose Contextual Event Segmentation (CES), a
+			novel segmentation paradigm that uses an LSTM-based generative
+			network to model the photo-stream sequences, predict their visual
+			context, and track their evolution. CES decides whether a frame
+			is an event boundary by comparing the visual context generated
+			from the frames in the past, to the visual context predicted from
+			the future.  We implemented CES on a new and massive lifelogging
+			dataset consisting of more than 1.5 million images spanning over
+			1,723 days. Experiments on the popular EDUB-Seg dataset show
+			that our model outperforms the state-of-the-art by over 16% in
+			f-measure. Furthermore, CES’ performance is only 3 points below
+			that of human annotators. 
+      </div>     
+      	<div class="figure" style="grid-area: teaser;">
+      	<img src="files/CES-teaser.png" width="100%">
+      </div>
+
+	<div class='header' style='grid-area: awehead;'>
+		<hr>
+		<h2 text-align='left'>CES in action for one example lifelog from EDUB-Seg: </h2>
+		<section class="figGrid">
+			<div class="figure" style="grid-area: area1;">
+				<img src="files/CES-qualitative.png" width="100%">
+			</div>
+		</section>
+			
+		<p>In this example, those frames which are false positives or false negatives
+		in the baselines are highlighted. Unlike the baselines, CES is able to ignore occasional occlusions as long as the
+		different points of view span less frames than CES’ memory span (A). It is also capable of detecting boundaries that separate
+		heterogeneous events such as riding a bike on the street and shopping at the supermarket (C, D). Most of the boundaries not detected
+		by CES correspond to events that take place within the same physical space (B) and short transitions (C, D), e.g. parking
+		the bike.
+	</div>	  
+	<div class='header' style='grid-area: sechead;'>
+		<hr>
+		<h2 text-align='left'>Method Overview </h2>
+	</div>
+	<div class="figure" style="grid-area: fig1;">
+		<img src="files/LSTM.png" width="100%">
+	</div>	
+	<div class='content' style='grid-area: txt1;'>
+		<p> Given a continuous stream of photos, we, as humans, would identify
+		the start of an event if the new frame differs from the expectation we have generated.
+		The proposed model is analogous to such intuitive framework
+		of perceptual reasoning. It uses an encoder-decoder architecture to
+		predict the visual context at time t given the images seen before,
+		i.e. the past. A second visual context is predicted from the ensuing
+		frames, i.e. the future. If the two predicted visual contexts differ
+		greatly, CES will infer that the two sequences (past and future) correspond
+		to different events, and will consider the frame at time t as a candidate
+		event boundary.</p> 
+
+	</div>	
+	<div class='content' style='grid-area: txt12;'>
+		<p>
+		CES consists of two modules:
+		<ol type="i">
+		  <li>the Visual Context Predictor (VCP), an LSTM (1) network that predicts the visual context
+		of the upcoming frame, either in the past or in the future depending
+		on the sequence ordering. An auto-encoder architecture (2) is used to train VCP with the objective of reaching minimum prediction mse.
+		  </li>
+		  <li>the event boundary detector (3),
+		that compares the visual context at each time-step given the frame
+		sequence from the past, with the visual context given the sequence
+		in the future.</li>
+		</ol>
+		</p> 
+
+		<p>
+		</p> 
+	</div>
+
+	<div class='content' style='grid-area: txt2;'>
+		<hr>
+		<h2 text-align='left'>Experimental Results </h2>
+
+            <p>Over a series of experiments, we observa that while most state-of-the-art methods
+		fall within the mid-range performance in terms of f-measure, CES
+		stands out of the baselines, improving their performance by over
+		15%, and positioning itself on the upper range of the absolute spectrum.
+		The performance of CES is even competitive with that of the
+		manual annotations.
+                </p>
+		<section class="figGrid", >
+			<div class="figure" style="grid-area: area2;">
+				<img src="files/CES-results.png" style="width:100%; max-width:500px">
+			</div>
+		</section>
+	</div>
+  </section>
+</body>
+</html>
+

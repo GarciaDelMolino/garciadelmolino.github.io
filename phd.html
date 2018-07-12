@@ -5,10 +5,8 @@
     <link href="css/styles.css" rel="stylesheet">
 	<!-- Grid -->	
 	<style>
-	.site {
-		display: grid;
+	.paper_site {
 		grid-template-columns: 3.5fr 2.5fr 4fr 1fr;
-		grid-template-rows: auto;
 		grid-template-areas:
 			"abstract abstract teaser teaser"
 			"abstract2 abstract2 abstract2 . "
@@ -17,46 +15,29 @@
 		    "fig1 fig1 txt1 txt1"
 			"txt12 txt12 txt12 txt12"
 		    "txt2 txt2 txt2 txt2";
-		align-items: center;
-		margin: 0 35px 35px 35px;
-	}
-	.figGrid{
-		display: grid;
-		grid-template-columns: auto auto auto;
-		grid-template-rows: auto;
-		grid-template-areas:
-			"area1 area2 area3";
-		grid-column-gap: 1em;
-		align-items: center;
-	}
-	.figure{
-		padding: 0 1em 0 1em;
-		text-align: center;
 	}
 
 	@media (max-width: 900px){
-	  .site {
-		  display: grid;
+		.paper_site {
 		  grid-template-columns: auto;
-		  grid-template-rows: auto;
 		  grid-template-areas:
-		      "abstract"
+			  "abstract"
 			  "abstract2"
-		      "teaser"
+			  "teaser"
 			  "awehead"
 			  "sechead"
 			  "fig1"
-		      "txt1"
-		      "txt12"
-		      "txt2";
-		font-size: 10pt;
-	  }
+			  "txt1"
+			  "txt12"
+			  "txt2";
+		  font-size: 10pt;
+		}
 	  
-	  h1 {
+		h1 {
 			margin: 0;
 			font-weight: 300;
 			font-size: 20pt;
-	  }
+		}
 		.figGrid{
 			grid-template-columns: auto;
 			grid-template-areas:
@@ -70,39 +51,16 @@
 			padding: 0 5% 0 5%;
 			text-align: center;
 		}
-
 	}
-	@media (min-width: 1500px){
-	  .site {
-		  display: grid;
-		  grid-template-columns: 1fr 6fr 0.5fr 4.5fr 1fr;
-		  grid-template-rows: auto;
-		  grid-template-areas:
-		      "abstract abstract . teaser teaser"
-			  "abstract2 abstract2 . teaser teaser"
-			  ". awehead awehead awehead ."
-			  ". sechead sechead sechead ."
-		      ". fig1 txt1 txt1 ."
-			  ". txt12 txt12 txt12 ."
-		      ". txt2 txt2 txt2 ."
+
+	@media (min-width: 1200px){
+	  body {
+		  width: 1020px;
 	  }
-	  margin: 0 35px 35px 35px;
 	}
 
 
-	.abs {
-		padding: 0 1em 0 1em;
-	}
-	.site .header {
-		padding: 0 1em 0 1em;
-	}
-	.site .content {
-		grid-area: txt1;
-		padding: 0 1em 0 1em;
-	}
-	.site p {
-		text-align: justify;
-	}
+
 	</style>
     <title>Personalized Highlight Detection</title>
 
@@ -115,11 +73,11 @@
   <div text-align='left'>
     <a href="https://garciadelmolino.github.io">Home</a>
   </div>
-  <section class="site">
+  <section class="paper_site">
       <div class="abs" style="grid-area: abstract;">
 		<h1>Personalized Highlight Detection for Automatic GIF Creation</h1>
   	    <hr>
-        <div class='nav-links' text-align='center'>
+        <div class='nav-links'>
                 <a href="http://arxiv.org/abs/1804.06604">Paper</a>
                 - <a href="https://github.com/gyglim/personalized-highlights-dataset">Dataset</a>
 				- <a href="files/PHD-GIFs.bib">BibTeX</a>
@@ -173,7 +131,7 @@
 		<img src="files/PHDarch.png" width="100%">
 	</div>	
 	<div class='content' style='grid-area: txt1;'>
-		<p> We propose a model that predicts the score of a segment
+		<p> Our model predicts the score of a segment
 		as a function of both the segment itself and the user’s previously
 		selected highlights. As such, the model learns to take into account
 		the user history to make accurate personalized predictions.</p> 
