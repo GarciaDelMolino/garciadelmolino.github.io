@@ -7,64 +7,73 @@
     <link href="css/styles.css" rel="stylesheet">
 	<!-- Grid -->	
 	<style>
+	  body {
+		width: 1020px;
+		margin: auto;
+	  }
 	.site {
 		display: grid;
-		grid-template-columns: 7fr 8fr;
-		grid-template-rows: auto auto;
+		grid-template-columns: 3fr 2fr;
+		grid-template-rows: auto;
 		grid-template-areas:
-			"fig about"
-			"aboutP aboutP";
-
-		align-items: center;
+			"title title"
+			"aboutP fig"
+			"about about"
+			"link link";
 		padding: 0 1em 0 1em;
-	}
-
-	@media screen and (max-width: 800px){
-	  .site {
-		  display: grid;
-		  grid-template-columns: auto;
-		  grid-template-rows: auto;
-		  grid-template-areas:
-			"fig"
-			"about"
-			"aboutP";
-		align-items: center;
-	  }
-	}
-	@media screen and (min-width: 1300px){
-	  .site {
-		  display: grid;
-		  grid-template-columns: 1fr 3fr 8fr 1fr;
-		  grid-template-rows: auto;
-		  grid-template-areas:
-			"fig fig about ."
-			"fig fig aboutP .";
-		  padding: 0 1em 0 1em;
-	  }
 	}
 
 	.pic {
-		grid-area: fig;
-		padding: 0 1em 0 1em;
-		text-align: center;		
+	    grid-area: fig;
+	    padding: 1em 3em 0 1em;
+	    text-align: center;
+	    margin-bottom: -3em;		
 	}
 
 	.aboutMe {
-		grid-area: about;
-		padding: 0 1em 0 1em;
-		text-align: justify;		
-	}
-
-	.aboutMePerso {
-		grid-area: aboutP;
 		padding: 0 1em 0 1em;
 		text-align: justify;		
 	}
 
 	.pic img {
 		border: 5px solid #b5cea9;
+		margin: -5px;	
 		border-radius: 5%/7.5%;	
-		width: 100%		
+		width: 100%
+	}
+
+	.home {
+		text-align: right; 
+		padding-right: 2em; 
+		padding-top: 1em;
+	}
+
+	@media screen and (max-width: 800px){
+	  .site {
+		  grid-template-columns: auto;
+		  grid-template-areas:
+			"fig"
+			"title"
+			"aboutP"
+			"about"
+			"link";
+
+	  }
+	  .pic {
+		    padding: 2em 3em 1em 3em;
+		    margin-bottom: auto;		
+	  }
+	  .home {
+	  	text-align: left; 
+		padding-left: 2em;
+	  }
+	}
+
+
+	@media screen and (max-width: 1020px){
+		  body {
+			width: auto;
+		  }
 	}
 
 	</style>
@@ -75,18 +84,21 @@
 
 
 <body>
-  <div text-align='left'>
+  <div class='home'>
     <a href="https://garciadelmolino.github.io">Home</a>
   </div>
     <section class="site">
         <div class='pic'>
             <img src="files/ana.jpg">
         </div>
-
-
-        <div class='aboutMe'>
-            <h1>me, Me, ME!</h1>
+        <div class='aboutMe', style="grid-area: title">
+            <h1>Hi there!</h1>
             <hr>
+        </div>
+
+
+        <div class='aboutMe', style="grid-area: about">
+<h2>And the boring stuff...</h2>
             
             <p>I am a PhD candidate at the School of Computer Engineering, Nanyang Technological University, Singapore, and the Institute for Infocomm Research (A*STAR), under the <a href="https://www.a-star.edu.sg/singa-award/">Singapore International Graduate Award (SINGA)</a> program. My supervisors are Lim Joo-Hwee and Tan Ah-Hwee.
 My research interests are in the areas of computer vision, pattern recognition and cognitive vision. In particular, my PhD topic is the summarization of egocentric and consumer videos.
@@ -95,9 +107,14 @@ My research interests are in the areas of computer vision, pattern recognition a
         </div>
 
 
-        <div class='aboutMePerso'>            
+        <div class='aboutMe', style="grid-area: aboutP">  
+<h2>Me!</h2>          
 	    <p>If I'm not reading, coding, writing papers or creating silly webpages, you will most likely find me taking pictures of random stuff with my phone, at the cinema or, let's be honest, on my couch reading a book or watching the last Netflix release. I also try to travel as much as the deadlines allow, and enjoy making earings out of whatever trinket I find.			
 </p>
+        </div>
+
+
+        <div class='aboutMe', style="grid-area: link">      
 	    <div class='nav-links'>
 	                <a href='mailto:ana002@ntu.edu.sg'>Email</a>
 	                - <a href="http://github.com/garciadelmolino">Github</a> 
